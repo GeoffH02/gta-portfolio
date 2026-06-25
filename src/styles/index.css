@@ -1,0 +1,818 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --gta-gold: #d9b26f;
+  --gta-gold-bright: #f3cf92;
+  --gta-green: #84c44d;
+  --gta-cream: #f4f0e8;
+  --gta-grey: #b5b5b5;
+  --gta-black: #111111;
+  --gta-border: rgba(244, 240, 232, 0.22);
+}
+
+@font-face {
+  font-family: "Chalet";
+  src: url("./fonts/Chalet%20LondonNineteenSixty%20Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: var(--gta-black);
+  color: var(--gta-cream);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--gta-black);
+}
+
+/* Intro */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  background: var(--gta-black);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.intro--fade {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+.cesium-container {
+  position: absolute;
+  inset: 0;
+}
+
+.cesium-viewer,
+.cesium-viewer-cesiumWidgetContainer,
+.cesium-widget,
+.cesium-widget canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(217, 178, 111, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(circle, transparent 34%, rgba(17, 17, 17, 0.82) 100%);
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(244, 240, 232, 0.14) 0,
+    rgba(244, 240, 232, 0.14) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  mix-blend-mode: overlay;
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+/* Loader GTA */
+
+.gta-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: clamp(24px, 6vw, 80px);
+  background: var(--gta-black);
+  pointer-events: auto;
+}
+
+.gta-loader-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  filter: contrast(1.08) saturate(0.85) brightness(0.58);
+  transform: scale(1.04);
+  transition:
+    opacity 1s ease,
+    transform 6s ease;
+}
+
+.gta-loader-image--active {
+  opacity: 1;
+  transform: scale(1.09);
+}
+
+.gta-loader-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.2), rgba(17, 17, 17, 0.78)),
+    linear-gradient(to top, rgba(17, 17, 17, 0.94), rgba(17, 17, 17, 0.16));
+}
+
+.gta-loader--exit {
+  animation: gtaLoaderExit 0.75s ease both;
+}
+
+.gta-loader-card {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  text-align: right;
+  animation: gtaCardEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.gta-loader-kicker {
+  color: var(--gta-gold);
+  font-family: "Chalet", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+.gta-loader-card h1 {
+  margin: 12px 0;
+  color: var(--gta-cream);
+  font-family: "Chalet", sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.gta-loader-card p {
+  margin: 0 0 22px;
+  color: var(--gta-grey);
+}
+
+.gta-loading-bar {
+  width: 280px;
+  height: 5px;
+  margin-left: auto;
+  overflow: hidden;
+  background: rgba(244, 240, 232, 0.22);
+}
+
+.gta-loading-bar span {
+  display: block;
+  width: 45%;
+  height: 100%;
+  background: var(--gta-gold-bright);
+  animation: gtaLoad 1.15s ease-in-out infinite;
+}
+
+/* Carte / zoom */
+
+.map-title {
+  position: absolute;
+  bottom: clamp(32px, 5vw, 64px);
+  left: clamp(24px, 4vw, 64px);
+  z-index: 10;
+  color: var(--gta-cream);
+  text-transform: uppercase;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.map-title span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gta-gold);
+  font-family: "Chalet", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+}
+
+.map-title h1 {
+  margin: 0;
+  font-family: "Chalet", sans-serif;
+  font-size: clamp(3.4rem, 8vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: 0.015em;
+}
+
+.map-title p {
+  margin: 14px 0 0;
+  color: rgba(244, 240, 232, 0.76);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.map-coords {
+  position: absolute;
+  right: clamp(24px, 4vw, 64px);
+  bottom: clamp(34px, 5vw, 66px);
+  z-index: 10;
+  display: flex;
+  gap: 14px;
+  color: rgba(244, 240, 232, 0.72);
+  font-family: "Chalet", sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.map-coords span + span::before {
+  margin-right: 14px;
+  color: var(--gta-gold);
+  content: "/";
+}
+
+.map-title--enter,
+.map-coords--enter {
+  animation: mapTextEnter 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.skip-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 60;
+  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: rgba(244, 240, 232, 0.88);
+  cursor: pointer;
+  font-family: "Chalet", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+}
+
+.skip-btn:hover {
+  color: var(--gta-gold-bright);
+}
+
+/* Portfolio / menu pause GTA */
+
+.portfolio {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.portfolio--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gta-pause {
+  min-height: 100vh;
+  padding: clamp(42px, 6vw, 84px) clamp(22px, 15vw, 250px) 70px;
+  color: #f4f0e8;
+  font-family: "Chalet", Arial, sans-serif;
+}
+
+.pause-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+.pause-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  filter: blur(8px) brightness(0.52) saturate(0.78);
+  transform: scale(1.06);
+  transition:
+    opacity 1.2s ease,
+    transform 7s ease;
+}
+
+.pause-slide--active {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.pause-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.48),
+      rgba(0, 0, 0, 0.34) 50%,
+      rgba(0, 0, 0, 0.58)
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.48));
+}
+
+.pause-header,
+.pause-tabs,
+.pause-content,
+.pause-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.pause-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 70px;
+  padding-bottom: 10px;
+}
+
+.pause-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.5rem, 4vw, 4.25rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+}
+
+.pause-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-align: right;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.pause-profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.05;
+}
+
+.pause-profile-text strong {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.pause-profile-text span {
+  margin-top: 3px;
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.pause-profile-text small {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+}
+
+.pause-profile img {
+  width: 54px;
+  height: 54px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: #111;
+  object-fit: cover;
+}
+
+.pause-tabs {
+  display: grid;
+  grid-template-columns: 32px repeat(5, 1fr) 32px;
+  margin-bottom: 18px;
+  background: transparent;
+}
+
+.pause-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.68);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.pause-tab:last-of-type {
+  border-right: 0;
+}
+
+.pause-tab:hover {
+  background: rgba(244, 240, 232, 0.2);
+  color: #ffffff;
+}
+
+.pause-tab.active {
+  background: #f4f0e8;
+  color: #111;
+}
+
+.pause-tab.active::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: #2d8de5;
+  content: "";
+}
+
+.pause-tab-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transition: color 0.15s ease;
+}
+
+.pause-tab-arrow:hover {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pause-content {
+  display: grid;
+  grid-template-columns: minmax(230px, 30%) 1fr;
+  gap: 4px;
+  min-height: 520px;
+}
+
+.pause-sidebar,
+.pause-panel {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
+.pause-sidebar {
+  align-self: start;
+}
+
+.pause-sidebar button {
+  display: block;
+  width: 100%;
+  padding: 13px 14px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  text-align: left;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.pause-sidebar button:hover {
+  background: rgba(244, 240, 232, 0.2);
+  color: #ffffff;
+}
+
+.pause-sidebar button.active {
+  background: #f4f0e8;
+  color: #111;
+}
+.pause-panel {
+  overflow: hidden;
+}
+
+.pause-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  padding: 13px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.pause-row strong,
+.pause-row a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  text-align: right;
+}
+
+.pause-row a:hover {
+  color: #f3cf92;
+}
+
+.pause-row.active {
+  background: #f4f0e8;
+  color: #111;
+}
+
+.pause-row.active strong,
+.pause-row.active a {
+  color: #111;
+}
+
+.pause-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.pause-projects--no-margin {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.pause-projects article {
+  min-height: 205px;
+  padding: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.36);
+}
+
+.pause-projects article:last-child {
+  border-right: 0;
+}
+
+.pause-projects span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.85rem;
+}
+
+.pause-projects h2 {
+  margin: 12px 0 10px;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.pause-projects p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.pause-footer {
+  position: absolute;
+  right: clamp(22px, 4vw, 64px);
+  bottom: 22px;
+  display: flex;
+  gap: 22px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.pause-footer b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  min-height: 20px;
+  margin-right: 6px;
+  padding: 2px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 3px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+/* Animations */
+
+@keyframes gtaLoad {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(70%);
+  }
+
+  100% {
+    transform: translateX(240%);
+  }
+}
+
+@keyframes gtaCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gtaLoaderExit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes mapTextEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .gta-pause {
+    padding: 38px 18px 80px;
+  }
+
+  .pause-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .pause-profile,
+  .pause-profile-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .pause-tabs {
+    grid-template-columns: 26px repeat(5, minmax(100px, 1fr)) 26px;
+    overflow-x: auto;
+  }
+
+  .pause-content {
+    grid-template-columns: 1fr;
+  }
+
+  .pause-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pause-sidebar button {
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .pause-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .pause-projects article {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .pause-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .pause-row strong,
+  .pause-row a {
+    text-align: left;
+  }
+
+  .pause-footer {
+    right: auto;
+    bottom: 22px;
+    left: 18px;
+  }
+
+  .gta-loader {
+    justify-content: flex-start;
+  }
+
+  .gta-loader-card {
+    text-align: left;
+  }
+
+  .gta-loading-bar {
+    width: min(280px, 100%);
+    margin-left: 0;
+  }
+
+  .map-title {
+    bottom: 28px;
+    left: 24px;
+  }
+
+  .map-title h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .map-coords {
+    right: 24px;
+    bottom: 30px;
+    gap: 8px;
+    font-size: 0.62rem;
+  }
+
+  .map-coords span + span::before {
+    margin-right: 8px;
+  }
+
+  .skip-btn {
+    top: 14px;
+    right: 14px;
+  }
+}
