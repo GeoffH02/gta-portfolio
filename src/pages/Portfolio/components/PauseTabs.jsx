@@ -11,7 +11,10 @@ export default function PauseTabs({
       <button
         type="button"
         className="pause-tab-arrow pause-tab-arrow--left"
-        onClick={goPrevious}
+        onClick={(event) => {
+          event.currentTarget.blur();
+          goPrevious();
+        }}
         aria-label="Catégorie précédente"
       >
         ‹
@@ -21,10 +24,11 @@ export default function PauseTabs({
         <button
           key={category}
           type="button"
-          className={`pause-tab ${
-            activeCategory === category ? "active" : ""
-          }`}
-          onClick={() => changeCategory(category)}
+          className={`pause-tab ${activeCategory === category ? "active" : ""}`}
+          onClick={(event) => {
+            event.currentTarget.blur();
+            changeCategory(category);
+          }}
         >
           {menu[category].label}
         </button>
@@ -33,7 +37,10 @@ export default function PauseTabs({
       <button
         type="button"
         className="pause-tab-arrow pause-tab-arrow--right"
-        onClick={goNext}
+        onClick={(event) => {
+          event.currentTarget.blur();
+          goNext();
+        }}
         aria-label="Catégorie suivante"
       >
         ›

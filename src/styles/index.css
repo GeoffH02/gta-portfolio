@@ -445,6 +445,14 @@ button {
   background: transparent;
 }
 
+.pause-tab:focus {
+  outline: none;
+}
+
+.pause-tab:focus-visible {
+  outline: none;
+}
+
 .pause-tab {
   position: relative;
   display: flex;
