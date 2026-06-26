@@ -3,9 +3,9 @@
 }
 
 :root {
-  --gta-gold: #d9b26f;
-  --gta-gold-bright: #f3cf92;
-  --gta-green: #84c44d;
+  --gta-blue: #2d8de5;
+  --gta-blue-light: #6db8ff;
+
   --gta-cream: #f4f0e8;
   --gta-grey: #b5b5b5;
   --gta-black: #111111;
@@ -179,7 +179,7 @@ button {
 }
 
 .gta-loader-kicker {
-  color: var(--gta-gold);
+  color: var(--gta-blue);
   font-family: "Chalet", sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
@@ -214,7 +214,7 @@ button {
   display: block;
   width: 45%;
   height: 100%;
-  background: var(--gta-gold-bright);
+  background: var(--gta-blue-light);
   animation: gtaLoad 1.15s ease-in-out infinite;
 }
 
@@ -828,19 +828,76 @@ button {
 .home-map {
   display: flex;
   justify-content: center;
-  padding: 22px;
+  align-items: center;
 }
 
 .home-map-frame {
-  width: 520px;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
 
   background: rgba(20, 20, 20, 0.85);
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .home-map-frame img {
-  width: 100%;
   display: block;
+
+  width: auto;
+  max-width: 100%;
+
+  height: auto;
+  max-height: auto;
+
+  object-fit: contain;
+}
+
+.status-online {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.status-dot {
+  position: relative;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background: #32d74b;
+
+  box-shadow: 0 0 8px rgba(50, 215, 75, 0.6);
+}
+
+.status-dot::after {
+  content: "";
+
+  position: absolute;
+  inset: -4px;
+
+  border-radius: 50%;
+  border: 2px solid rgba(50, 215, 75, 0.45);
+
+  animation: pulseStatus 1.8s ease-out infinite;
+}
+
+@keyframes pulseStatus {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }

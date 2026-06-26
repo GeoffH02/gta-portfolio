@@ -1,5 +1,3 @@
-import lilleMap from "../../styles/img/Lille-GTA-Map.png";
-
 export default function Home() {
   return (
     <div className="home-page">
@@ -18,16 +16,28 @@ export default function Home() {
           <span>Localisation</span>
           <strong>Lille, France</strong>
         </div>
-
+        <div className="pause-row">
+          <span>Email</span>
+          <strong>geoffrey02@orange.fr</strong>
+        </div>
+        <div className="pause-row">
+          <span>Téléphone</span>
+          <strong>Non public</strong>
+        </div>
+        <div className="pause-row">
+          <span>Permis</span>
+          <strong>Permis B / Véhiculé</strong>
+        </div>
+        <div className="pause-row">
+          <span>Languages</span>
+          <strong>Français Natif / Anglais Bilingue</strong>
+        </div>
         <div className="pause-row">
           <span>Statut</span>
-          <strong>Full Stack Developer</strong>
-        </div>
-      </div>
-
-      <div className="home-map">
-        <div className="home-map-frame">
-          <img src={lilleMap} alt="Carte GTA de Lille" />
+          <strong className="status-online">
+            <span className="status-dot" />
+            Disponible
+          </strong>
         </div>
       </div>
     </div>

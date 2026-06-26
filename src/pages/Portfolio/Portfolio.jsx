@@ -7,6 +7,8 @@ import Home from "../Home/Home.jsx";
 import ProjectsOverview from "../Projects/Projects.jsx";
 import StackOverview from "../Stack/Stack.jsx";
 import Contact from "../Contact/Contact.jsx";
+import AboutMe from "../Home/AboutMe.jsx";
+import HomeMap from "../Home/HomeMap.jsx";
 
 import imgEuratech from "../../styles/img/Euratechnologies-Mathieu-Lassalle-7-1-min-1920x960-crop-1705509667.jpg";
 import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.jpg";
@@ -42,27 +44,6 @@ function PortfolioOverview() {
       <div className="pause-row">
         <span>Expérience</span>
         <strong>Kobi Sport / Epitech</strong>
-      </div>
-    </>
-  );
-}
-
-function AboutMe() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>À propos</span>
-        <strong>Hallier Geoffrey</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Profil</span>
-        <strong>Développeur passionné depuis plusieurs années</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Objectif</span>
-        <strong>Créer des outils utiles, propres et performants</strong>
       </div>
     </>
   );
@@ -211,10 +192,11 @@ function ToolsStack() {
 
 const MENU = {
   home: {
-    label: "HOME",
+    label: "PRESENTATION",
     items: [
-      { key: "overview", label: "Accueil", component: Home },
-      { key: "about", label: "À propos", component: AboutMe },
+      { key: "overview", label: "Informations", component: Home },
+      { key: "home", label: "Carte", component: HomeMap },
+      { key: "about", label: "Hobbies", component: AboutMe },
     ],
   },
   portfolio: {
@@ -261,7 +243,7 @@ const CATEGORY_KEYS = Object.keys(MENU);
 
 export default function Portfolio({ visible }) {
   const [currentImage, setCurrentImage] = useState(0);
-  const [activeCategory, setActiveCategory] = useState("portfolio");
+  const [activeCategory, setActiveCategory] = useState("home");
   const [activeItem, setActiveItem] = useState(MENU.portfolio.items[0].key);
 
   const currentCategory = MENU[activeCategory];
