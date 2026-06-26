@@ -14,12 +14,7 @@ import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
 
-const PORTFOLIO_IMAGES = [
-  imgEuratech,
-  imgCitadelle,
-  imgLille,
-  imgShutterstock,
-];
+const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
 function PortfolioOverview() {
   return (
@@ -225,7 +220,11 @@ const MENU = {
   portfolio: {
     label: "PORTFOLIO",
     items: [
-      { key: "overview", label: "Vue d'ensemble", component: PortfolioOverview },
+      {
+        key: "overview",
+        label: "Vue d'ensemble",
+        component: PortfolioOverview,
+      },
       { key: "intro", label: "Intro GTA", component: CinematicProject },
       { key: "about", label: "Profil", component: AboutMe },
     ],
@@ -236,7 +235,11 @@ const MENU = {
       { key: "overview", label: "Vue d'ensemble", component: ProjectsOverview },
       { key: "tf2", label: "TF2 Trading Helper", component: Tf2Project },
       { key: "kobi", label: "Kobi Sport", component: KobiProject },
-      { key: "cinematic", label: "Portfolio Cinematic", component: CinematicProject },
+      {
+        key: "cinematic",
+        label: "Portfolio Cinematic",
+        component: CinematicProject,
+      },
     ],
   },
   stack: {
@@ -250,9 +253,7 @@ const MENU = {
   },
   contact: {
     label: "CONTACT",
-    items: [
-      { key: "overview", label: "Contact", component: Contact },
-    ],
+    items: [{ key: "overview", label: "Contact", component: Contact }],
   },
 };
 
@@ -304,8 +305,75 @@ export default function Portfolio({ visible }) {
     changeCategory(CATEGORY_KEYS[nextIndex]);
   }
 
+  useEffect(() => {
+    function handleKeyDown(event) {
+      const tag = event.target.tagName;
+
+      if (
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        event.target.isContentEditable
+      ) {
+        return;
+      }
+
+      switch (event.key.toLowerCase()) {
+        case "q":
+          event.preventDefault();
+          goPrevious();
+          break;
+
+        case "d":
+          event.preventDefault();
+          goNext();
+          break;
+
+        case "z":
+          event.preventDefault();
+          moveSidebar(-1);
+          break;
+
+        case "s":
+          event.preventDefault();
+          moveSidebar(1);
+          break;
+
+        default:
+          break;
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeCategory, activeItem]);
+
+  function moveSidebar(direction) {
+    const currentItems = MENU[activeCategory].items;
+
+    const currentIndex = currentItems.findIndex(
+      (item) => item.key === activeItem,
+    );
+
+    let newIndex = currentIndex + direction;
+
+    if (newIndex < 0) {
+      newIndex = currentItems.length - 1;
+    }
+
+    if (newIndex >= currentItems.length) {
+      newIndex = 0;
+    }
+
+    setActiveItem(currentItems[newIndex].key);
+  }
+
   return (
-    <section className={`portfolio gta-pause ${visible ? "portfolio--visible" : ""}`}>
+    <section
+      className={`portfolio gta-pause ${visible ? "portfolio--visible" : ""}`}
+    >
       <div className="pause-slideshow">
         {PORTFOLIO_IMAGES.map((image, index) => (
           <div
@@ -357,10 +425,10 @@ export default function Portfolio({ visible }) {
 
       <footer className="pause-footer">
         <span>
-          <b>ESC</b> Retour
+          <b>Z / S</b> Naviguer
         </span>
         <span>
-          <b>ENTER</b> Sélectionner
+          <b>Q / D</b> Changer d'onglet
         </span>
       </footer>
     </section>
