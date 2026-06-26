@@ -945,3 +945,113 @@ button {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
 }
+
+.ca.career-story {
+  min-height: 520px;
+  padding: 34px 42px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.62));
+}
+
+.career-story-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.career-story-progress span {
+  min-width: 48px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.78rem;
+}
+
+.career-story-progress div {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.career-story-progress i {
+  display: block;
+  height: 100%;
+  background: var(--gta-blue);
+  transition: width 0.25s ease;
+}
+
+.career-story-header {
+  max-width: 820px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.career-story-header span {
+  color: var(--gta-blue);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.career-story-header h3 {
+  margin: 10px 0;
+  color: #fff;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-weight: 400;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.career-story-header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1rem;
+}
+
+.career-story-text {
+  max-width: 920px;
+  max-height: 270px;
+  margin-top: 26px;
+  padding-right: 18px;
+  overflow-y: auto;
+}
+
+.career-story-text p {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.career-story-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.career-story-footer button {
+  border: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  padding: 9px 13px;
+  font-size: 0.85rem;
+}
+
+.career-story-footer button:hover {
+  background: rgba(244, 240, 232, 0.2);
+}
+
+.career-story-footer button:last-child {
+  justify-self: end;
+}
+
+.career-story-footer strong {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
