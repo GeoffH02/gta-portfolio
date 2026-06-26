@@ -390,7 +390,7 @@ export default function Intro({ onComplete }) {
           <div className="map-title map-title--enter">
             <span>ZOOM SUR</span>
             <h3>{hudLabel}</h3>
-            <p>GEOFFREY HALLIER</p>
+            <p>HALLIER GEOFFREY</p>
           </div>
 
           <div className="map-coords map-coords--enter">

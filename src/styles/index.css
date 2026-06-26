@@ -824,3 +824,23 @@ button {
     right: 14px;
   }
 }
+
+.home-map {
+  display: flex;
+  justify-content: center;
+  padding: 22px;
+}
+
+.home-map-frame {
+  width: 520px;
+  padding: 10px;
+
+  background: rgba(20, 20, 20, 0.85);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.home-map-frame img {
+  width: 100%;
+  display: block;
+}

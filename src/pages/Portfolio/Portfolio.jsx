@@ -52,7 +52,7 @@ function AboutMe() {
     <>
       <div className="pause-row active">
         <span>À propos</span>
-        <strong>Geoffrey Hallier</strong>
+        <strong>Hallier Geoffrey</strong>
       </div>
 
       <div className="pause-row">
@@ -389,7 +389,7 @@ export default function Portfolio({ visible }) {
       <div className="pause-bg" />
 
       <header className="pause-header">
-        <h1>Geoffrey Hallier</h1>
+        <h1>Hallier Geoffrey</h1>
 
         <div className="pause-profile">
           <div className="pause-profile-text">
