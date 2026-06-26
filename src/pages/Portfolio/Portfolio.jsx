@@ -15,6 +15,7 @@ import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.j
 import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
+import Presentation from "../Home/Presentation.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -195,8 +196,9 @@ const MENU = {
     label: "PRESENTATION",
     items: [
       { key: "overview", label: "Informations", component: Home },
-      { key: "home", label: "Carte", component: HomeMap },
+      { key: "presentation", label: "Presentation", component: Presentation },
       { key: "about", label: "Hobbies", component: AboutMe },
+      { key: "home", label: "Carte", component: HomeMap },
     ],
   },
   portfolio: {

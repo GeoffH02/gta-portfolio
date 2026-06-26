@@ -33,6 +33,10 @@ export default function Home() {
           <strong>Français Natif / Anglais Bilingue</strong>
         </div>
         <div className="pause-row">
+          <span>Etudes</span>
+          <strong>Bac +5</strong>
+        </div>
+        <div className="pause-row">
           <span>Statut</span>
           <strong className="status-online">
             <span className="status-dot" />
