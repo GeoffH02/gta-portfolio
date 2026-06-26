@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
+    "cesium": "latest",
+    "lucide-react": "^1.21.0",
     "react": "latest",
     "react-dom": "latest",
-    "cesium": "latest",
+    "vite": "latest",
     "vite-plugin-cesium": "latest"
-  },
-  "devDependencies": {}
+  }
 }
