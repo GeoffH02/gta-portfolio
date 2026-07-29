@@ -1055,3 +1055,919 @@ button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+.projects-list {
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.project-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 118px;
+  padding: 18px 22px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  overflow: hidden;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--gta-blue);
+  transition: width 0.15s ease;
+}
+
+.project-card:hover {
+  background: #f4f0e8;
+  color: #111;
+}
+
+.project-card:hover::before {
+  width: 5px;
+}
+
+.project-logo {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  background: rgba(255, 255, 255, 0.92);
+  overflow: hidden;
+}
+
+.project-logo img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  transition: transform 0.15s ease;
+}
+
+.project-card:hover .project-logo img {
+  transform: scale(1.06);
+}
+
+.project-logo span {
+  color: #111;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+}
+
+.project-content h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.project-content small {
+  display: block;
+  margin-top: 5px;
+  color: var(--gta-blue-light);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-card:hover .project-content small {
+  color: #1d5f9d;
+}
+
+.project-content p {
+  max-width: 780px;
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.project-card:hover .project-content p {
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.project-id {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.project-card:hover .project-id {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.stack-list {
+  width: 100%;
+}
+
+/* Vue d'ensemble de la stack */
+.stack-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.stack-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.stack-icons svg {
+  width: 22px;
+  height: 22px;
+  color: #ffffff;
+  opacity: 0.85;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.pause-row.active .stack-icons svg {
+  color: #66d9ff;
+}
+
+.stack-icons svg:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Pages Frontend / Backend / Database / Outils */
+
+/* =========================================================
+   STACK — version compacte et animée
+========================================================= */
+
+.frontend-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.82),
+    rgba(7, 10, 12, 0.9)
+  );
+}
+
+.frontend-stack__rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(110px, 0.55fr) minmax(280px, 1.45fr) 165px;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  min-height: 82px;
+  padding: 10px 16px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.62);
+  color: rgba(255, 255, 255, 0.94);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.stack-row::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 193, 223, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  content: "";
+  pointer-events: none;
+}
+
+.stack-row:hover,
+.stack-row:focus-visible {
+  background: rgba(14, 21, 25, 0.95);
+  outline: none;
+}
+
+.stack-row:hover::before,
+.stack-row:focus-visible::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stack-row.active {
+  background: rgba(242, 239, 231, 0.98);
+  color: #111;
+}
+
+.stack-row.active::before {
+  opacity: 0;
+}
+
+.stack-row__header,
+.stack-row__icons,
+.stack-row__progress {
+  position: relative;
+  z-index: 1;
+}
+
+.stack-row__header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.stack-row__title {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.stack-row__subtitle {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.52);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stack-row.active .stack-row__subtitle {
+  color: rgba(17, 17, 17, 0.56);
+}
+
+.stack-row__icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.stack-row.active .stack-row__icons {
+  animation: stackIconsEnter 300ms ease both;
+}
+
+.stack-row__progress {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.skill-bar {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(8px, 1fr));
+  gap: 2px;
+  width: 165px;
+}
+
+.skill-bar__segment {
+  height: 6px;
+  border: 1px solid rgba(116, 189, 216, 0.14);
+  background: rgba(70, 117, 135, 0.32);
+  transform-origin: center;
+}
+
+.skill-bar__segment--active {
+  border-color: #69c1df;
+  background: #69c1df;
+  box-shadow: 0 0 3px rgba(105, 193, 223, 0.3);
+}
+
+.stack-row.active .skill-bar__segment {
+  border-color: rgba(32, 91, 111, 0.12);
+  background: rgba(32, 91, 111, 0.22);
+}
+
+.stack-row.active .skill-bar__segment--active {
+  border-color: #289fc7;
+  background: #289fc7;
+  animation: skillSegmentFill 280ms ease both;
+}
+
+.stack-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 68px;
+  min-width: 68px;
+  text-align: center;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.stack-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.12);
+}
+
+.stack-icon__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--stack-icon-color);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.stack-icon__visual svg,
+.stack-icon__visual img {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
+
+.stack-icon:hover .stack-icon__visual {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px var(--stack-icon-color));
+}
+
+.stack-icon__label {
+  max-width: 68px;
+  margin-top: 4px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 10px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stack-row.active .stack-icon__label {
+  color: rgba(10, 10, 10, 0.82);
+}
+
+.stack-description {
+  position: relative;
+  flex: 1;
+  min-height: 238px;
+  padding: 28px 34px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.88),
+    rgba(12, 17, 20, 0.78)
+  );
+  animation: stackPanelEnter 320ms ease both;
+}
+
+.stack-description::after {
+  position: absolute;
+  top: 0;
+  left: -45%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.035),
+    transparent
+  );
+  transform: skewX(-18deg);
+  animation: stackLightSweep 650ms ease forwards;
+  content: "";
+  pointer-events: none;
+}
+
+.stack-description__watermark {
+  position: absolute;
+  right: 34px;
+  bottom: -30px;
+  z-index: 0;
+  color: var(--watermark-color);
+  opacity: 0.045;
+  pointer-events: none;
+  animation: watermarkEnter 500ms ease both;
+}
+
+.stack-description__watermark svg {
+  width: 230px;
+  height: 230px;
+}
+
+.stack-description__technologies,
+.stack-description__separator,
+.stack-description__content {
+  position: relative;
+  z-index: 1;
+}
+
+.stack-description__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  min-height: 105px;
+}
+
+.stack-description__technology {
+  animation: technologyIconEnter 350ms ease both;
+}
+
+.stack-icon--large {
+  width: 110px;
+  min-width: 110px;
+}
+
+.stack-icon--large .stack-icon__visual {
+  width: 66px;
+  height: 66px;
+}
+
+.stack-icon--large .stack-icon__visual svg,
+.stack-icon--large .stack-icon__visual img {
+  width: 58px;
+  height: 58px;
+}
+
+.stack-icon--large .stack-icon__label {
+  max-width: 110px;
+  margin-top: 8px;
+  overflow: visible;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.stack-description__separator {
+  width: 100%;
+  height: 1px;
+  margin: 22px 0 18px;
+  background: rgba(255, 255, 255, 0.17);
+  transform-origin: left;
+  animation: stackSeparatorEnter 420ms ease both;
+}
+
+.stack-description__content {
+  max-width: 760px;
+}
+
+.stack-description__content h3 {
+  margin: 0 0 5px;
+  color: rgba(255, 255, 255, 0.97);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  animation: descriptionTitleEnter 320ms ease both;
+}
+
+.stack-description__summary {
+  margin: 0 0 10px;
+  color: #69c1df;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: descriptionTextEnter 360ms 40ms ease both;
+}
+
+.stack-description__content > p:last-child {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  animation: descriptionTextEnter 420ms 80ms ease both;
+}
+
+@keyframes stackIconsEnter {
+  from {
+    opacity: 0.35;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes skillSegmentFill {
+  from {
+    opacity: 0;
+    transform: scaleY(0.35);
+  }
+  65% {
+    opacity: 1;
+    transform: scaleY(1.25);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes stackPanelEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stackLightSweep {
+  from {
+    left: -45%;
+  }
+  to {
+    left: 115%;
+  }
+}
+
+@keyframes technologyIconEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stackSeparatorEnter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes watermarkEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.92);
+  }
+  to {
+    opacity: 0.045;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes descriptionTitleEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes descriptionTextEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .stack-row {
+    grid-template-columns: 105px 1fr 135px;
+    gap: 12px;
+  }
+
+  .skill-bar {
+    width: 135px;
+  }
+
+  .stack-description {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 620px) {
+  .stack-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 10px;
+  }
+
+  .stack-row__icons,
+  .stack-row__progress {
+    justify-content: flex-start;
+  }
+
+  .skill-bar {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .stack-description__technologies {
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .stack-description__watermark {
+    right: -30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-row,
+  .stack-row::before,
+  .stack-icon,
+  .stack-icon__visual {
+    transition: none;
+  }
+
+  .stack-row.active .stack-row__icons,
+  .stack-row.active .skill-bar__segment--active,
+  .stack-description,
+  .stack-description::after,
+  .stack-description__technology,
+  .stack-description__separator,
+  .stack-description__watermark,
+  .stack-description__content h3,
+  .stack-description__summary,
+  .stack-description__content > p:last-child {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.stack-overview {
+  overflow: hidden;
+}
+
+.stack-overview__row {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: stackOverviewRowEnter 360ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--row-delay);
+}
+
+.stack-overview__row::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(104, 190, 220, 0.12),
+    transparent 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+  content: "";
+  transition: opacity 180ms ease;
+}
+
+.stack-overview__row:hover::before {
+  opacity: 1;
+}
+
+.stack-overview__row > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stack-overview__row:hover {
+  padding-left: 18px;
+}
+
+.stack-overview__row,
+.stack-overview__row span {
+  transition:
+    padding-left 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.stack-overview__row:hover span {
+  color: #68bedc;
+}
+
+.skill-bar--animated .skill-bar__segment {
+  opacity: 0;
+  transform: scaleY(0.35);
+  animation: stackOverviewSegmentEnter 260ms ease forwards;
+}
+
+.skill-bar--animated .skill-bar__segment:not(.skill-bar__segment--active) {
+  opacity: 1;
+  transform: scaleY(1);
+  animation: none;
+}
+
+@keyframes stackOverviewRowEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes stackOverviewSegmentEnter {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.35);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scaleY(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-overview__row,
+  .skill-bar--animated .skill-bar__segment {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* =========================================================
+   HOME PAGE ANIMATIONS
+========================================================= */
+
+.home-page {
+  overflow: hidden;
+}
+
+.home-infos {
+  overflow: hidden;
+}
+
+.home-info-row {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: homeInfoRowEnter 380ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--home-row-delay);
+  transition:
+    padding-left 180ms ease,
+    background-color 180ms ease;
+}
+
+.home-info-row > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-info-row span,
+.home-info-row strong {
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+/* ===== Statut ===== */
+
+.home-info-row--status {
+  background: linear-gradient(90deg, rgba(50, 215, 75, 0.03), transparent 55%);
+}
+
+.status-online__text {
+  animation: statusTextGlow 2.5s ease-in-out infinite;
+}
+
+.status-dot {
+  animation: statusDotBreath 1.8s ease-in-out infinite;
+}
+
+.status-dot::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(50, 215, 75, 0.45);
+  animation: statusRingPulse 1.8s ease-out infinite;
+}
+
+.status-dot::after {
+  animation: statusRingPulse 1.8s 350ms ease-out infinite;
+}
+
+/* ===== Animations ===== */
+
+@keyframes homeInfoRowEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes statusDotBreath {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 8px rgba(50, 215, 75, 0.6),
+      0 0 16px rgba(50, 215, 75, 0.2);
+  }
+
+  50% {
+    transform: scale(1.15);
+    box-shadow:
+      0 0 12px rgba(50, 215, 75, 0.9),
+      0 0 22px rgba(50, 215, 75, 0.35);
+  }
+}
+
+@keyframes statusRingPulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.75);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes statusTextGlow {
+  0%,
+  100% {
+    color: inherit;
+    text-shadow: none;
+  }
+
+  50% {
+    color: #d9ffe1;
+    text-shadow: 0 0 10px rgba(50, 215, 75, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-info-row,
+  .status-dot,
+  .status-dot::before,
+  .status-dot::after,
+  .status-online__text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-info-row,
+  .home-info-row::before,
+  .home-info-row span,
+  .home-info-row strong {
+    transition: none;
+  }
+}
