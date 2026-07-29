@@ -3,9 +3,7 @@ export default function Contact() {
     <>
       <div className="pause-row active">
         <span>Email</span>
-        <a href="mailto:geoffrey02kill@gmail.com">
-          geoffrey02kill@gmail.com
-        </a>
+        <a href="mailto:geoffrey02@orange.fr">geoffrey02@orange.fr</a>
       </div>
 
       <div className="pause-row">
