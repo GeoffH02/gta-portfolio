@@ -1,30 +1,42 @@
+import SkillBar from "../components/SkillBar/SkillBar";
+
+const stack = [
+  {
+    label: "Frontend",
+    level: 95,
+  },
+  {
+    label: "Backend",
+    level: 90,
+  },
+  {
+    label: "Database",
+    level: 85,
+  },
+  {
+    label: "Outils",
+    level: 70,
+  },
+];
+
 export default function Stack() {
   return (
-    <>
-      <div className="pause-row active">
-        <span>Frontend</span>
-        <strong>React / Vue / Tailwind / Material UI</strong>
-      </div>
+    <div className="stack-overview">
+      {stack.map((item, index) => (
+        <div
+          key={item.label}
+          className="pause-row stack-overview__row"
+          style={{
+            "--row-delay": `${index * 90}ms`,
+          }}
+        >
+          <span>{item.label}</span>
 
-      <div className="pause-row">
-        <span>Backend</span>
-        <strong>Node.js / NestJS / GraphQL</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Database</span>
-        <strong>MongoDB</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Build</span>
-        <strong>Vite / Next.js</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Autres</span>
-        <strong>jQuery / Tests / Automatisations</strong>
-      </div>
-    </>
+          <div className="stack-content">
+            <SkillBar level={item.level} animationDelay={index * 90} />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
