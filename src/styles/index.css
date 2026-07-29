@@ -1971,3 +1971,244 @@ button {
     transition: none;
   }
 }
+
+/* =========================================================
+   PRESENTATION — ANIMATIONS STYLE GTA
+========================================================= */
+
+.presentation-page {
+  overflow: hidden;
+}
+
+/* Apparition progressive des accordéons */
+
+.presentation-page > * {
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: presentationRowEnter 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.presentation-page > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.presentation-page > *:nth-child(2) {
+  animation-delay: 55ms;
+}
+
+.presentation-page > *:nth-child(3) {
+  animation-delay: 110ms;
+}
+
+.presentation-page > *:nth-child(4) {
+  animation-delay: 165ms;
+}
+
+.presentation-page > *:nth-child(5) {
+  animation-delay: 220ms;
+}
+
+.presentation-page > *:nth-child(6) {
+  animation-delay: 275ms;
+}
+
+.presentation-page > *:nth-child(7) {
+  animation-delay: 330ms;
+}
+
+.presentation-page > *:nth-child(8) {
+  animation-delay: 385ms;
+}
+
+/* En-tête */
+
+.presentation-page .accordion-header {
+  position: relative;
+  min-height: 43px;
+  overflow: hidden;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(0, 0, 0, 0.52);
+  color: rgba(255, 255, 255, 0.94);
+  transition:
+    padding-left 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.presentation-page .accordion-header::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 193, 223, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: translateX(-22px);
+  content: "";
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.presentation-page .accordion-header:hover {
+  padding-left: 18px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.presentation-page .accordion-header:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.presentation-page .accordion-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ligne ouverte : rendu crème GTA */
+
+.presentation-page .accordion-header.open,
+.presentation-page .accordion-header[aria-expanded="true"] {
+  background: var(--gta-cream);
+  color: #111;
+}
+
+.presentation-page .accordion-header.open::before,
+.presentation-page .accordion-header[aria-expanded="true"]::before {
+  opacity: 0;
+}
+
+/* Flèche */
+
+.presentation-page .accordion-arrow {
+  transition:
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 160ms ease;
+}
+
+.presentation-page .accordion-header:hover .accordion-arrow {
+  transform: translateX(3px);
+  color: var(--gta-blue-light);
+}
+
+.presentation-page .accordion-arrow.open {
+  color: #111;
+  transform: rotate(90deg);
+}
+
+/* Ouverture du contenu */
+
+.presentation-page .accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 220ms ease;
+}
+
+.presentation-page .accordion-content.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.presentation-page .accordion-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    padding-top 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding-bottom 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.presentation-page .accordion-content.open .accordion-inner {
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+/* Texte */
+
+.presentation-page .accordion-inner p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.presentation-page .accordion-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.presentation-page .accordion-content.open p {
+  animation: presentationTextEnter 260ms ease both;
+}
+
+.presentation-page .accordion-content.open p:nth-child(2) {
+  animation-delay: 45ms;
+}
+
+.presentation-page .accordion-content.open p:nth-child(3) {
+  animation-delay: 90ms;
+}
+
+/* Animations */
+
+@keyframes presentationRowEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes presentationTextEnter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibilité */
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-page > *,
+  .presentation-page .accordion-content.open p {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .presentation-page .accordion-header,
+  .presentation-page .accordion-header::before,
+  .presentation-page .accordion-arrow,
+  .presentation-page .accordion-content,
+  .presentation-page .accordion-inner {
+    transition: none;
+  }
+}
+
+.about-me-page .accordion-content.open .accordion-inner {
+  background: linear-gradient(
+    90deg,
+    rgba(105, 193, 223, 0.025),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.about-me-page .accordion-header[aria-expanded="true"] {
+  border-top: 3px solid var(--gta-blue);
+}

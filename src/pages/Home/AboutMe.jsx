@@ -2,65 +2,92 @@ import AccordionRow from "../components/AccordionRow/AccordionRow";
 
 export default function AboutMe() {
   return (
-    <>
-      <AccordionRow title="Randomnée">
+    <div className="presentation-page about-me-page">
+      <AccordionRow title="Randonnée">
         <p>
-          J'adore la marche, j'en fais autant que possible chaque jour : pendant
+          J'adore marcher et j'en fais autant que possible chaque jour : pendant
           la pause du midi, le matin pour aller travailler, le soir pour rentrer
-          du travail et même encore le soir à la salle de sport. Il me faut au
-          moins 20 000 pas par jour pour me dire que c'était une journée
-          correcte
+          du travail et parfois même à la salle de sport.
         </p>
+
         <p>
-          Le week-end, il m'arrive de me connecter sur Visorando (un site qui
-          répertorie les randonnées à proximité) et de partir pour plusieurs
-          heures de marche, généralement plus de 20 km. Comme ça, il y a encore
-          plus de paysages à découvrir
+          Il me faut au moins 20 000 pas par jour pour considérer que la journée
+          a été suffisamment active.
+        </p>
+
+        <p>
+          Le week-end, il m'arrive de consulter Visorando, un site qui
+          répertorie les randonnées à proximité, puis de partir pour plusieurs
+          heures de marche, généralement sur des parcours de plus de 20 km.
+          C'est aussi une excellente façon de découvrir de nouveaux paysages.
         </p>
       </AccordionRow>
 
       <AccordionRow title="Cuisine">
         <p>
-          Cuisine... Je marque ça comme un hobby, même si je suis un piètre
-          cuisinier. J'adore expérimenter de nouvelles recettes. Généralement,
-          ça finit en pâtes au beurre, mais il y a de l'idée parfois ! 😄
+          La cuisine fait partie de mes hobbies, même si je suis loin d'être un
+          grand cuisinier. J'aime tester de nouvelles recettes et expérimenter
+          avec ce que j'ai sous la main.
+        </p>
+
+        <p>
+          Cela finit parfois en pâtes au beurre, mais il y a toujours de l'idée
+          et l'envie d'essayer quelque chose de nouveau ! 😄
         </p>
       </AccordionRow>
 
       <AccordionRow title="DJing">
         <p>
-          Le DJing, je l'ai découvert totalement par hasard avec des amis au
-          cours d'une soirée. J'ai pris ça à la rigolade au début, puis je m'y
-          suis mis sérieusement. Ça me permet d'exprimer un côté artistique (un
-          peu comme je le fais avec le développement de mes sites web). Je n'ai
-          jamais eu la prétention d'être un bon DJ, sachant que j'ai toujours
-          fait ça avant tout pour moi et pour m'amuser. Le jour où je ne
+          J'ai découvert le DJing totalement par hasard avec des amis au cours
+          d'une soirée. J'ai commencé pour m'amuser, puis je m'y suis
+          progressivement investi davantage.
+        </p>
+
+        <p>
+          Cela me permet d'exprimer un côté artistique, un peu comme lorsque je
+          conçois une interface ou développe un site web.
+        </p>
+
+        <p>
+          Je n'ai jamais eu la prétention d'être un DJ professionnel. Je
+          pratique avant tout pour moi et pour le plaisir. Le jour où je ne
           m'amuserai plus, j'arrêterai.
         </p>
       </AccordionRow>
 
       <AccordionRow title="Collection de vinyles">
         <p>
-          Les vinyles, c'est une grande histoire d'amour. C'est arrivé peu après
-          mes débuts en tant que DJ. Des amis utilisaient des vinyles pour
-          mixer, ce qui m'a intrigué. Quelques mois plus tard, j'ai acheté mes
-          premiers vinyles : 1, puis 2, puis 3... pour en avoir aujourd'hui près
-          de 400.
+          Les vinyles sont devenus une véritable passion peu après mes débuts
+          dans le DJing. Des amis mixaient sur vinyles, ce qui a rapidement
+          éveillé ma curiosité.
+        </p>
+
+        <p>
+          J'ai ensuite acheté mes premiers disques : un, puis deux, puis
+          trois... jusqu'à constituer aujourd'hui une collection d'environ 400
+          vinyles.
         </p>
       </AccordionRow>
 
       <AccordionRow title="Jeux vidéo">
         <p>
-          J'adore les jeux vidéo depuis que je suis très jeune. J'ai toujours
-          été très grand public dans mes goûts : je peux très bien jouer à Call
-          of Duty comme à Farming Simulator ou encore à The Last of Us. Dès mes
-          13 ans, je me suis pris de passion pour le modding, c'est-à-dire la
-          modification de jeux vidéo. J'ai vite été pris au jeu et j'ai commencé
-          à créer des scripts pour des jeux comme Arma 3, Left 4 Dead 2 ou
-          Garry's Mod. C'est d'ailleurs ce qui m'a lancé dans le monde du
-          développement.
+          J'aime les jeux vidéo depuis mon enfance et mes goûts sont assez
+          variés. Je peux aussi bien jouer à Call of Duty qu'à Farming Simulator
+          ou The Last of Us.
+        </p>
+
+        <p>
+          Dès l'âge de 13 ans, je me suis passionné pour le modding,
+          c'est-à-dire la modification de jeux vidéo. J'ai commencé à créer des
+          scripts et du contenu pour des jeux comme Arma 3, Left 4 Dead 2 ou
+          Garry's Mod.
+        </p>
+
+        <p>
+          Cette passion pour le modding est d'ailleurs l'une des principales
+          raisons qui m'ont conduit vers le développement.
         </p>
       </AccordionRow>
-    </>
+    </div>
   );
 }

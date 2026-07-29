@@ -2,7 +2,7 @@ import AccordionRow from "../../pages/components/AccordionRow/AccordionRow";
 
 export default function Presentation() {
   return (
-    <>
+    <div className="presentation-page">
       <AccordionRow title="Introduction" defaultOpen>
         <p>
           Bonjour ! Je m'appelle Geoffrey Hallier, originaire de la Thiérache
@@ -17,7 +17,7 @@ export default function Presentation() {
           le C#. Rien de grandiose à cette époque : je passais mon temps sur
           Stack Overflow à récupérer du code intéressant et à l'intégrer dans
           mes projets, sans réellement comprendre pourquoi c'était fait comme
-          ça, ni même pourquoi ça ne fonctionnait pas parfois.
+          ça, ni même pourquoi cela ne fonctionnait parfois pas.
         </p>
       </AccordionRow>
 
@@ -37,11 +37,10 @@ export default function Presentation() {
 
         <p>
           Je suis resté plus d'un an sur ce projet, à développer quasiment nuit
-          et jour. Au fil des mois, j'ai commencé à créer des scripts vraiment
-          complets et complexes, avec des algorithmes assez poussés. Par
-          exemple, j'avais développé un GPS capable de calculer des itinéraires
-          en suivant les routes de la carte grâce à un algorithme que j'avais
-          conçu moi-même.
+          et jour. Au fil des mois, j'ai commencé à créer des scripts complets
+          et complexes, avec des algorithmes assez poussés. Par exemple, j'avais
+          développé un GPS capable de calculer des itinéraires en suivant les
+          routes de la carte grâce à un algorithme conçu par mes soins.
         </p>
       </AccordionRow>
 
@@ -49,11 +48,11 @@ export default function Presentation() {
         <p>
           Par la suite, l'entreprise dans laquelle je travaillais m'a demandé de
           développer une application permettant de gérer les inventaires entre
-          leurs différentes usines.
+          ses différentes usines.
         </p>
 
         <p>
-          J'ai accepté le défi, et aujourd'hui encore, cette application
+          J'ai accepté le défi et, aujourd'hui encore, cette application
           fonctionne parfaitement.
         </p>
       </AccordionRow>
@@ -66,7 +65,7 @@ export default function Presentation() {
         </p>
 
         <p>
-          J'étais principalement en charge du design du wallet, sous forme
+          J'étais principalement chargé du design du wallet sous forme
           d'extension web, ainsi que d'une partie du back-end. J'y ai développé
           un agenda, un carnet de contacts, un système d'airdrops permettant à
           d'autres cryptomonnaies de distribuer leurs tokens via le wallet, et
@@ -74,8 +73,8 @@ export default function Presentation() {
         </p>
 
         <p>
-          Malheureusement, je n'ai pas poursuivi l'aventure puisque mon contrat
-          d'alternance arrivait à son terme.
+          Je n'ai malheureusement pas poursuivi l'aventure, mon contrat
+          d'alternance arrivant à son terme.
         </p>
       </AccordionRow>
 
@@ -88,8 +87,8 @@ export default function Presentation() {
         </p>
 
         <p>
-          C'était l'un de mes plus gros projets : la plateforme accueillait
-          plusieurs milliers d'utilisateurs chaque jour.
+          C'était l'un de mes projets les plus importants : la plateforme
+          accueillait plusieurs milliers d'utilisateurs chaque jour.
         </p>
       </AccordionRow>
 
@@ -101,7 +100,7 @@ export default function Presentation() {
         </p>
 
         <p>
-          J'y suis resté deux ans et demi. Au départ simple alternant front-end,
+          J'y suis resté deux ans et demi. Initialement alternant front-end,
           j'ai progressivement pris en charge toute la structure front des
           plateformes client et interne.
         </p>
@@ -132,6 +131,6 @@ export default function Presentation() {
           continuant à apprendre et à évoluer.
         </p>
       </AccordionRow>
-    </>
+    </div>
   );
 }
