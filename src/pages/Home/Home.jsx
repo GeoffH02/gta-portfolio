@@ -1,46 +1,72 @@
+const informations = [
+  {
+    label: "Nom",
+    value: "Hallier",
+  },
+  {
+    label: "Prénom",
+    value: "Geoffrey",
+  },
+  {
+    label: "Localisation",
+    value: "Lille, France",
+  },
+  {
+    label: "Email",
+    value: "geoffrey02@orange.fr",
+  },
+  {
+    label: "Téléphone",
+    value: "Non public",
+  },
+  {
+    label: "Permis",
+    value: "Permis B / Véhiculé",
+  },
+  {
+    label: "Langues",
+    value: "🇫🇷 Français (Natif) · 🇬🇧 Anglais (B2/C1)",
+  },
+  {
+    label: "Études",
+    value: "MSC Pro - Epitech Lille",
+  },
+  {
+    label: "Expérience",
+    value: "~ 8 ans",
+  },
+];
+
 export default function Home() {
   return (
     <div className="home-page">
       <div className="home-infos">
-        <div className="pause-row">
-          <span>Nom</span>
-          <strong>Hallier</strong>
-        </div>
+        {informations.map((information, index) => (
+          <div
+            key={information.label}
+            className="pause-row home-info-row"
+            style={{
+              "--home-row-delay": `${index * 65}ms`,
+            }}
+          >
+            <span>{information.label}</span>
+            <strong>{information.value}</strong>
+          </div>
+        ))}
 
-        <div className="pause-row">
-          <span>Prénom</span>
-          <strong>Geoffrey</strong>
-        </div>
-
-        <div className="pause-row">
-          <span>Localisation</span>
-          <strong>Lille, France</strong>
-        </div>
-        <div className="pause-row">
-          <span>Email</span>
-          <strong>geoffrey02@orange.fr</strong>
-        </div>
-        <div className="pause-row">
-          <span>Téléphone</span>
-          <strong>Non public</strong>
-        </div>
-        <div className="pause-row">
-          <span>Permis</span>
-          <strong>Permis B / Véhiculé</strong>
-        </div>
-        <div className="pause-row">
-          <span>Languages</span>
-          <strong>Français Natif / Anglais Bilingue</strong>
-        </div>
-        <div className="pause-row">
-          <span>Etudes</span>
-          <strong>Bac +5</strong>
-        </div>
-        <div className="pause-row">
+        <div
+          className="pause-row home-info-row home-info-row--status"
+          style={{
+            "--home-row-delay": `${informations.length * 65}ms`,
+          }}
+        >
           <span>Statut</span>
+
           <strong className="status-online">
             <span className="status-dot" />
-            Disponible
+            <span className="status-online__text">
+              Disponible immédiatement
+            </span>
           </strong>
         </div>
       </div>
