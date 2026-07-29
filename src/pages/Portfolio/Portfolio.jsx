@@ -16,6 +16,9 @@ import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
 import Presentation from "../Home/Presentation.jsx";
+import FrontendStack from "../Portfolio/components/FrontEndStack/FrontEndStack.jsx";
+import BackEndStack from "../Portfolio/components/BackEndStack/BackEndStack.jsx";
+import ToolsStack from "../Portfolio/components/ToolsStack/ToolsStack.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -50,58 +53,6 @@ function PortfolioOverview() {
   );
 }
 
-function Tf2Project() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Projet</span>
-        <strong>TF2 Trading Helper</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Type</span>
-        <strong>Bot Steam / Dashboard / Automatisation</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Backend</span>
-        <strong>Node.js / MongoDB / Websocket</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Objectif</span>
-        <strong>Analyser, gérer et sécuriser les échanges TF2</strong>
-      </div>
-    </>
-  );
-}
-
-function KobiProject() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Projet</span>
-        <strong>Kobi Sport</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Contexte</span>
-        <strong>Application métier / challenges sportifs</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Stack</span>
-        <strong>React / GraphQL / Tests front</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Fonctionnalités</span>
-        <strong>Challenges gamifiés, interfaces admin, outils internes</strong>
-      </div>
-    </>
-  );
-}
-
 function CinematicProject() {
   return (
     <>
@@ -128,69 +79,6 @@ function CinematicProject() {
   );
 }
 
-function FrontendStack() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Frontend</span>
-        <strong>React / Vue</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>UI</span>
-        <strong>Tailwind / Material UI / CSS</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Build</span>
-        <strong>Vite / Next.js</strong>
-      </div>
-    </>
-  );
-}
-
-function BackendStack() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Backend</span>
-        <strong>Node.js / NestJS</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>API</span>
-        <strong>REST / GraphQL</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Database</span>
-        <strong>MongoDB</strong>
-      </div>
-    </>
-  );
-}
-
-function ToolsStack() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Outils</span>
-        <strong>Git / Tests / Automatisations</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Tests</span>
-        <strong>Jest / Playwright</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Autres</span>
-        <strong>jQuery / Websocket / Dashboards</strong>
-      </div>
-    </>
-  );
-}
-
 const MENU = {
   home: {
     label: "PRESENTATION",
@@ -199,6 +87,15 @@ const MENU = {
       { key: "presentation", label: "Presentation", component: Presentation },
       { key: "about", label: "Hobbies", component: AboutMe },
       { key: "home", label: "Carte", component: HomeMap },
+    ],
+  },
+  stack: {
+    label: "STACK",
+    items: [
+      { key: "overview", label: "Vue d'ensemble", component: StackOverview },
+      { key: "frontend", label: "Frontend", component: FrontendStack },
+      { key: "backend", label: "Backend", component: BackEndStack },
+      { key: "tools", label: "Outils", component: ToolsStack },
     ],
   },
   portfolio: {
@@ -217,8 +114,6 @@ const MENU = {
     label: "PROJECTS",
     items: [
       { key: "overview", label: "Vue d'ensemble", component: ProjectsOverview },
-      { key: "tf2", label: "TF2 Trading Helper", component: Tf2Project },
-      { key: "kobi", label: "Kobi Sport", component: KobiProject },
       {
         key: "cinematic",
         label: "Portfolio Cinematic",
@@ -226,15 +121,7 @@ const MENU = {
       },
     ],
   },
-  stack: {
-    label: "STACK",
-    items: [
-      { key: "overview", label: "Vue d'ensemble", component: StackOverview },
-      { key: "frontend", label: "Frontend", component: FrontendStack },
-      { key: "backend", label: "Backend", component: BackendStack },
-      { key: "tools", label: "Outils", component: ToolsStack },
-    ],
-  },
+
   contact: {
     label: "CONTACT",
     items: [{ key: "overview", label: "Contact", component: Contact }],
