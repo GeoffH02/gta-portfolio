@@ -8,6 +8,10 @@ const informations = [
     value: "Geoffrey",
   },
   {
+    label: "Profession",
+    value: "Développeur Full Stack",
+  },
+  {
     label: "Localisation",
     value: "Lille, France",
   },

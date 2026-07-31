@@ -4,54 +4,31 @@ import PauseTabs from "./components/PauseTabs.jsx";
 import PauseSidebar from "./components/PauseSidebar.jsx";
 
 import Home from "../Home/Home.jsx";
+import Presentation from "../Home/Presentation.jsx";
+import AboutMe from "../Home/AboutMe.jsx";
+import HomeMap from "../Home/HomeMap.jsx";
+
 import ProjectsOverview from "../Projects/Projects.jsx";
 import StackOverview from "../Stack/Stack.jsx";
 import Contact from "../Contact/Contact.jsx";
-import AboutMe from "../Home/AboutMe.jsx";
-import HomeMap from "../Home/HomeMap.jsx";
+
+import FrontendStack from "./components/FrontEndStack/FrontEndStack.jsx";
+import BackEndStack from "./components/BackEndStack/BackEndStack.jsx";
+import ToolsStack from "./components/ToolsStack/ToolsStack.jsx";
+import CareerOverview from "../Career/CareerOverview.jsx";
+import CareerKobi from "../Career/CareerKobi.jsx";
+import CareerQuicksell from "../Career/CareerQuicksell.jsx";
+import CareerVirgo from "../Career/CareerVirgo.jsx";
+import CareerInternal from "../Career/CareerInternal.jsx";
+import CareerToday from "../Career/CareerToday.jsx";
 
 import imgEuratech from "../../styles/img/Euratechnologies-Mathieu-Lassalle-7-1-min-1920x960-crop-1705509667.jpg";
 import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.jpg";
 import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
-import Presentation from "../Home/Presentation.jsx";
-import FrontendStack from "../Portfolio/components/FrontEndStack/FrontEndStack.jsx";
-import BackEndStack from "../Portfolio/components/BackEndStack/BackEndStack.jsx";
-import ToolsStack from "../Portfolio/components/ToolsStack/ToolsStack.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
-
-function PortfolioOverview() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Profil</span>
-        <strong>Développeur Full Stack</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Spécialité</span>
-        <strong>Interfaces propres, rapides et efficaces</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Stack principale</span>
-        <strong>React / Node.js / GraphQL</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Projet principal</span>
-        <strong>TF2 Trading Helper</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Expérience</span>
-        <strong>Kobi Sport / Epitech</strong>
-      </div>
-    </>
-  );
-}
 
 function CinematicProject() {
   return (
@@ -68,7 +45,7 @@ function CinematicProject() {
 
       <div className="pause-row">
         <span>UI</span>
-        <strong>Menu pause inspiré GTA</strong>
+        <strong>Menu pause inspiré de GTA</strong>
       </div>
 
       <div className="pause-row">
@@ -83,37 +60,99 @@ const MENU = {
   home: {
     label: "PRESENTATION",
     items: [
-      { key: "overview", label: "Informations", component: Home },
-      { key: "presentation", label: "Presentation", component: Presentation },
-      { key: "about", label: "Hobbies", component: AboutMe },
-      { key: "home", label: "Carte", component: HomeMap },
+      {
+        key: "overview",
+        label: "Informations",
+        component: Home,
+      },
+      {
+        key: "presentation",
+        label: "Présentation",
+        component: Presentation,
+      },
+      {
+        key: "about",
+        label: "Hobbies",
+        component: AboutMe,
+      },
+      {
+        key: "map",
+        label: "Carte",
+        component: HomeMap,
+      },
     ],
   },
+
   stack: {
     label: "STACK",
-    items: [
-      { key: "overview", label: "Vue d'ensemble", component: StackOverview },
-      { key: "frontend", label: "Frontend", component: FrontendStack },
-      { key: "backend", label: "Backend", component: BackEndStack },
-      { key: "tools", label: "Outils", component: ToolsStack },
-    ],
-  },
-  portfolio: {
-    label: "PORTFOLIO",
     items: [
       {
         key: "overview",
         label: "Vue d'ensemble",
-        component: PortfolioOverview,
+        component: StackOverview,
       },
-      { key: "intro", label: "Intro GTA", component: CinematicProject },
-      { key: "about", label: "Profil", component: AboutMe },
+      {
+        key: "frontend",
+        label: "Frontend",
+        component: FrontendStack,
+      },
+      {
+        key: "backend",
+        label: "Backend",
+        component: BackEndStack,
+      },
+      {
+        key: "tools",
+        label: "Outils",
+        component: ToolsStack,
+      },
     ],
   },
+
+  portfolio: {
+    label: "CARRIÈRE",
+    items: [
+      {
+        key: "overview",
+        label: "Vue d'ensemble",
+        component: CareerOverview,
+      },
+      {
+        key: "kobi",
+        label: "Kobi Sport",
+        component: CareerKobi,
+      },
+      {
+        key: "quicksell",
+        label: "Quicksell",
+        component: CareerQuicksell,
+      },
+      {
+        key: "virgo",
+        label: "Virgo",
+        component: CareerVirgo,
+      },
+      {
+        key: "internal",
+        label: "Application interne",
+        component: CareerInternal,
+      },
+      {
+        key: "today",
+        label: "Aujourd'hui",
+        component: CareerToday,
+      },
+    ],
+  },
+
   projects: {
     label: "PROJECTS",
     items: [
-      { key: "overview", label: "Vue d'ensemble", component: ProjectsOverview },
+      {
+        key: "overview",
+        label: "Vue d'ensemble",
+        component: ProjectsOverview,
+      },
       {
         key: "cinematic",
         label: "Portfolio Cinematic",
@@ -124,7 +163,13 @@ const MENU = {
 
   contact: {
     label: "CONTACT",
-    items: [{ key: "overview", label: "Contact", component: Contact }],
+    items: [
+      {
+        key: "overview",
+        label: "Contact",
+        component: Contact,
+      },
+    ],
   },
 };
 
@@ -133,7 +178,7 @@ const CATEGORY_KEYS = Object.keys(MENU);
 export default function Portfolio({ visible }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [activeCategory, setActiveCategory] = useState("home");
-  const [activeItem, setActiveItem] = useState(MENU.portfolio.items[0].key);
+  const [activeItem, setActiveItem] = useState(MENU.home.items[0].key);
 
   const currentCategory = MENU[activeCategory];
 
@@ -147,18 +192,26 @@ export default function Portfolio({ visible }) {
   const ActiveContent = currentItem.component;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((previous) => {
-        return (previous + 1) % PORTFOLIO_IMAGES.length;
-      });
+    const interval = window.setInterval(() => {
+      setCurrentImage(
+        (previousImage) => (previousImage + 1) % PORTFOLIO_IMAGES.length,
+      );
     }, 4500);
 
-    return () => clearInterval(interval);
+    return () => {
+      window.clearInterval(interval);
+    };
   }, []);
 
   function changeCategory(categoryKey) {
+    const nextCategory = MENU[categoryKey];
+
+    if (!nextCategory) {
+      return;
+    }
+
     setActiveCategory(categoryKey);
-    setActiveItem(MENU[categoryKey].items[0].key);
+    setActiveItem(nextCategory.items[0].key);
   }
 
   function goPrevious() {
@@ -176,14 +229,31 @@ export default function Portfolio({ visible }) {
     changeCategory(CATEGORY_KEYS[nextIndex]);
   }
 
+  function moveSidebar(direction) {
+    const currentItems = MENU[activeCategory].items;
+    const currentIndex = currentItems.findIndex(
+      (item) => item.key === activeItem,
+    );
+
+    const safeCurrentIndex = currentIndex === -1 ? 0 : currentIndex;
+
+    const nextIndex =
+      (safeCurrentIndex + direction + currentItems.length) %
+      currentItems.length;
+
+    setActiveItem(currentItems[nextIndex].key);
+  }
+
   useEffect(() => {
     function handleKeyDown(event) {
-      const tag = event.target.tagName;
+      const target = event.target;
+      const tagName = target?.tagName;
 
       if (
-        tag === "INPUT" ||
-        tag === "TEXTAREA" ||
-        event.target.isContentEditable
+        tagName === "INPUT" ||
+        tagName === "TEXTAREA" ||
+        tagName === "SELECT" ||
+        target?.isContentEditable
       ) {
         return;
       }
@@ -221,38 +291,20 @@ export default function Portfolio({ visible }) {
     };
   }, [activeCategory, activeItem]);
 
-  function moveSidebar(direction) {
-    const currentItems = MENU[activeCategory].items;
-
-    const currentIndex = currentItems.findIndex(
-      (item) => item.key === activeItem,
-    );
-
-    let newIndex = currentIndex + direction;
-
-    if (newIndex < 0) {
-      newIndex = currentItems.length - 1;
-    }
-
-    if (newIndex >= currentItems.length) {
-      newIndex = 0;
-    }
-
-    setActiveItem(currentItems[newIndex].key);
-  }
-
   return (
     <section
       className={`portfolio gta-pause ${visible ? "portfolio--visible" : ""}`}
     >
-      <div className="pause-slideshow">
+      <div className="pause-slideshow" aria-hidden="true">
         {PORTFOLIO_IMAGES.map((image, index) => (
           <div
             key={image}
             className={`pause-slide ${
               index === currentImage ? "pause-slide--active" : ""
             }`}
-            style={{ backgroundImage: `url(${image})` }}
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
           />
         ))}
       </div>
@@ -269,7 +321,7 @@ export default function Portfolio({ visible }) {
             <small>LILLE, FRANCE</small>
           </div>
 
-          <img src={profileImage} alt="Geoffrey Hallier" />
+          <img src={profileImage} alt="Portrait de Geoffrey Hallier" />
         </div>
       </header>
 
@@ -290,7 +342,12 @@ export default function Portfolio({ visible }) {
         />
 
         <main className="pause-panel">
-          <ActiveContent />
+          <div
+            key={`${activeCategory}-${currentItem.key}`}
+            className="pause-panel__content"
+          >
+            <ActiveContent />
+          </div>
         </main>
       </div>
 
@@ -298,6 +355,7 @@ export default function Portfolio({ visible }) {
         <span>
           <b>Z / S</b> Naviguer
         </span>
+
         <span>
           <b>Q / D</b> Changer d'onglet
         </span>
