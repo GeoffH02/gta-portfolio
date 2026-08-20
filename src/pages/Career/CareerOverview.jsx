@@ -29,14 +29,6 @@ export default function CareerOverview() {
           label: "Domaines",
           value: "SaaS • Applications métier • Trading • Crypto",
         },
-        {
-          label: "Localisation",
-          value: "Lille, France",
-        },
-        {
-          label: "Disponibilité",
-          value: "Immédiate",
-        },
       ]}
     />
   );
