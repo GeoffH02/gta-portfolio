@@ -5,7 +5,7 @@ export default function CareerQuicksell() {
   return (
     <CareerPanel
       title="Quicksell.store"
-      subtitle="Plateforme de trading"
+      subtitle="2024 — 2025"
       description="Développement du frontend principal et participation importante à l'architecture backend."
       watermark={quicksellLogo}
       rows={[
