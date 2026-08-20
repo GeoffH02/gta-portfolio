@@ -13,6 +13,7 @@ import StackOverview from "../Stack/Stack.jsx";
 import Contact from "../Contact/Contact.jsx";
 import ContactQrCodes from "../Contact/components/ContactQRCode/ContactQRCode.jsx";
 import ContactCV from "../Contact/components/ContactCV/ContactCV.jsx";
+import Tf2Project from "../Projects/pages/TF2Project.jsx";
 
 import FrontendStack from "./components/FrontEndStack/FrontEndStack.jsx";
 import BackEndStack from "./components/BackEndStack/BackEndStack.jsx";
@@ -152,7 +153,7 @@ const MENU = {
       {
         key: "cinematic",
         label: "Portfolio Cinematic",
-        component: CinematicProject,
+        component: Tf2Project,
       },
     ],
   },
