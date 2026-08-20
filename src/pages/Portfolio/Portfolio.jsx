@@ -19,8 +19,7 @@ import CareerOverview from "../Career/CareerOverview.jsx";
 import CareerKobi from "../Career/CareerKobi.jsx";
 import CareerQuicksell from "../Career/CareerQuicksell.jsx";
 import CareerVirgo from "../Career/CareerVirgo.jsx";
-import CareerInternal from "../Career/CareerInternal.jsx";
-import CareerToday from "../Career/CareerToday.jsx";
+import CareerNespoli from "../Career/CareerNespoli.jsx";
 
 import imgEuratech from "../../styles/img/Euratechnologies-Mathieu-Lassalle-7-1-min-1920x960-crop-1705509667.jpg";
 import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.jpg";
@@ -133,14 +132,9 @@ const MENU = {
         component: CareerVirgo,
       },
       {
-        key: "internal",
-        label: "Application interne",
-        component: CareerInternal,
-      },
-      {
-        key: "today",
-        label: "Aujourd'hui",
-        component: CareerToday,
+        key: "tf2",
+        label: "Nespoli",
+        component: CareerNespoli,
       },
     ],
   },
