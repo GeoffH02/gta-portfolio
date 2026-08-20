@@ -11,6 +11,8 @@ import HomeMap from "../Home/HomeMap.jsx";
 import ProjectsOverview from "../Projects/Projects.jsx";
 import StackOverview from "../Stack/Stack.jsx";
 import Contact from "../Contact/Contact.jsx";
+import ContactQrCodes from "../Contact/components/ContactQRCode/ContactQRCode.jsx";
+import ContactCV from "../Contact/components/ContactCV/ContactCV.jsx";
 
 import FrontendStack from "./components/FrontEndStack/FrontEndStack.jsx";
 import BackEndStack from "./components/BackEndStack/BackEndStack.jsx";
@@ -162,6 +164,16 @@ const MENU = {
         key: "overview",
         label: "Contact",
         component: Contact,
+      },
+      {
+        key: "qrcode",
+        label: "QR Code",
+        component: ContactQrCodes,
+      },
+      {
+        key: "cv",
+        label: "CV",
+        component: ContactCV,
       },
     ],
   },
