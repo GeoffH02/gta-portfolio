@@ -124,25 +124,25 @@ export default function Tf2Project() {
             "Surveillance des modifications des listings concurrents avec comparaison des anciennes et nouvelles descriptions et outils d'outbid.",
         },
         {
-          src: tf2Screen3,
+          src: tf2Screen4,
           title: "Price Manager",
           description:
             "Gestion centralisée des prix, détection des meilleurs buy orders et configuration des prix spécifiques aux spells et variantes.",
         },
         {
-          src: tf2Screen4,
+          src: tf2Screen5,
           title: "Trade History",
           description:
             "Historique détaillé des échanges Steam avec statut, partenaire, prix attendu, prix payé et attributs des objets.",
         },
         {
-          src: tf2Screen5,
+          src: tf2Screen6,
           title: "Users Logs",
           description:
             "Suivi des utilisateurs ayant interagi avec les bots, statistiques des échanges et historique des interactions.",
         },
         {
-          src: tf2Screen6,
+          src: tf2Screen3,
           title: "Bot Monitoring",
           description:
             "Logs temps réel permettant de surveiller les bots, les WebSockets, les erreurs, les mises à jour et les automatisations.",
