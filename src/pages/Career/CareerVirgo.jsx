@@ -5,7 +5,7 @@ export default function CareerVirgo() {
   return (
     <CareerPanel
       title="Virgo"
-      subtitle="Écosystème blockchain"
+      subtitle="2022 — 2023"
       description="Participation au développement d'un wallet de cryptomonnaie proposé sous forme d'extension web."
       watermark={virgoLogo}
       rows={[
