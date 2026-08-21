@@ -32,32 +32,6 @@ import profileImage from "../../styles/img/profile.jpg";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
-function CinematicProject() {
-  return (
-    <>
-      <div className="pause-row active">
-        <span>Projet</span>
-        <strong>Portfolio Cinematic</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Intro</span>
-        <strong>Animation caméra Cesium vers Lille</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>UI</span>
-        <strong>Menu pause inspiré de GTA</strong>
-      </div>
-
-      <div className="pause-row">
-        <span>Objectif</span>
-        <strong>Portfolio immersif et mémorable</strong>
-      </div>
-    </>
-  );
-}
-
 const MENU = {
   home: {
     label: "PRESENTATION",
@@ -152,7 +126,7 @@ const MENU = {
       },
       {
         key: "cinematic",
-        label: "Portfolio Cinematic",
+        label: "Team Fortress 2 Helper",
         component: Tf2Project,
       },
     ],
