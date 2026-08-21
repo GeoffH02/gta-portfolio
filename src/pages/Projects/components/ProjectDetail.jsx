@@ -6,6 +6,7 @@ import {
   FaChevronRight,
   FaExternalLinkAlt,
   FaGithub,
+  FaLock,
   FaSearchPlus,
   FaTimes,
 } from "react-icons/fa";
@@ -21,6 +22,9 @@ export default function ProjectDetail({
   meta = [],
   githubUrl,
   demoUrl,
+  status,
+  confidential = false,
+  confidentialText,
 }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [zoomOpen, setZoomOpen] = useState(false);
@@ -32,6 +36,7 @@ export default function ProjectDetail({
     if (!images.length) return;
 
     setSlideDirection("previous");
+
     setActiveImageIndex(
       (current) => (current - 1 + images.length) % images.length,
     );
@@ -41,6 +46,7 @@ export default function ProjectDetail({
     if (!images.length) return;
 
     setSlideDirection("next");
+
     setActiveImageIndex((current) => (current + 1) % images.length);
   }
 
@@ -55,9 +61,17 @@ export default function ProjectDetail({
     if (!zoomOpen) return;
 
     function handleKeyDown(event) {
-      if (event.key === "Escape") setZoomOpen(false);
-      if (event.key === "ArrowLeft") previousImage();
-      if (event.key === "ArrowRight") nextImage();
+      if (event.key === "Escape") {
+        setZoomOpen(false);
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
     }
 
     window.addEventListener("keydown", handleKeyDown);
@@ -109,16 +123,22 @@ export default function ProjectDetail({
             {meta.map((item, index) => {
               const Icon = item.icon;
 
+              const value =
+                item.value ?? (item.status ? (status ?? "Projet actif") : "");
+
               return (
                 <div
-                  key={item.label}
+                  key={`${item.label}-${index}`}
                   className="project-meta__item"
-                  style={{ "--meta-delay": `${index * 70}ms` }}
+                  style={{
+                    "--meta-delay": `${index * 70}ms`,
+                  }}
                 >
                   {Icon && <Icon className="project-meta__icon" />}
 
                   <div>
                     <span>{item.label}</span>
+
                     <strong
                       className={
                         item.status ? "project-meta__status" : undefined
@@ -127,7 +147,8 @@ export default function ProjectDetail({
                       {item.status && (
                         <span className="project-meta__status-dot" />
                       )}
-                      {item.value}
+
+                      {value}
                     </strong>
                   </div>
                 </div>
@@ -146,19 +167,47 @@ export default function ProjectDetail({
 
             <div className="project-highlights__grid">
               {highlights.map((highlight, index) => {
-                const Icon = highlight.icon;
+                const isObject =
+                  typeof highlight === "object" && highlight !== null;
+
+                const Icon = isObject ? highlight.icon : null;
+
+                const highlightTitle = isObject
+                  ? (highlight.title ?? highlight.label)
+                  : highlight;
+
+                const highlightDescription = isObject
+                  ? highlight.description
+                  : null;
 
                 return (
                   <div
-                    key={highlight.label ?? highlight}
-                    className="project-highlight"
-                    style={{ "--highlight-delay": `${index * 70}ms` }}
+                    key={`${highlightTitle}-${index}`}
+                    className={`project-highlight ${
+                      highlightDescription ? "project-highlight--detailed" : ""
+                    }`}
+                    style={{
+                      "--highlight-delay": `${index * 70}ms`,
+                    }}
                   >
                     <span className="project-highlight__index">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    {Icon && <Icon className="project-highlight__icon" />}
-                    <strong>{highlight.label ?? highlight}</strong>
+
+                    {Icon && (
+                      <Icon
+                        className="project-highlight__icon"
+                        aria-hidden="true"
+                      />
+                    )}
+
+                    <div className="project-highlight__content">
+                      <strong>{highlightTitle}</strong>
+
+                      {highlightDescription && (
+                        <small>{highlightDescription}</small>
+                      )}
+                    </div>
                   </div>
                 );
               })}
@@ -176,7 +225,7 @@ export default function ProjectDetail({
 
                 return (
                   <div
-                    key={tech.name}
+                    key={`${tech.name}-${index}`}
                     className="project-stack-item"
                     style={{
                       "--tech-color": tech.color ?? "#ffffff",
@@ -206,6 +255,44 @@ export default function ProjectDetail({
           </div>
         )}
 
+        {confidential && (
+          <div className="project-confidential">
+            <div className="project-confidential__header">
+              <div className="project-confidential__label">
+                <FaLock />
+                <span>CONFIDENTIALITÉ</span>
+              </div>
+
+              <span className="project-confidential__classification">
+                DOCUMENTATION VISUELLE RESTREINTE
+              </span>
+            </div>
+
+            <div className="project-confidential__content">
+              <div className="project-confidential__lock">
+                <FaLock />
+              </div>
+
+              <div className="project-confidential__text">
+                <span>ACCÈS RESTREINT</span>
+
+                <h3>Aperçu non disponible</h3>
+
+                <p>
+                  {confidentialText ??
+                    "Les interfaces et données de ce projet ne peuvent pas être présentées publiquement pour des raisons de confidentialité."}
+                </p>
+              </div>
+            </div>
+
+            <div className="project-confidential__footer">
+              <span>AUCUNE CAPTURE PUBLIQUE DISPONIBLE</span>
+
+              <strong>PROJET PROFESSIONNEL • USAGE INTERNE</strong>
+            </div>
+          </div>
+        )}
+
         {images.length > 0 && (
           <div className="project-carousel">
             <div className="project-carousel__header">
@@ -213,7 +300,9 @@ export default function ProjectDetail({
 
               <div className="project-carousel__counter">
                 <small>CAPTURE</small>
+
                 <strong>{String(activeImageIndex + 1).padStart(2, "0")}</strong>
+
                 <span>— {String(images.length).padStart(2, "0")}</span>
               </div>
             </div>
@@ -279,6 +368,7 @@ export default function ProjectDetail({
 
                   <div>
                     <small>FONCTIONNALITÉ</small>
+
                     <strong>
                       {activeImage.title ?? `Capture ${activeImageIndex + 1}`}
                     </strong>
@@ -293,12 +383,14 @@ export default function ProjectDetail({
               <>
                 <div
                   className="project-carousel__progress"
-                  style={{ "--project-progress-count": images.length }}
+                  style={{
+                    "--project-progress-count": images.length,
+                  }}
                   aria-hidden="true"
                 >
                   {images.map((image, index) => (
                     <button
-                      key={`progress-${image?.src ?? image}`}
+                      key={`progress-${image?.src ?? image}-${index}`}
                       type="button"
                       className={`project-carousel__progress-segment ${
                         activeImageIndex === index
@@ -314,14 +406,16 @@ export default function ProjectDetail({
                 <div className="project-carousel__thumbnails">
                   {images.map((image, index) => (
                     <button
-                      key={image?.src ?? image}
+                      key={`thumbnail-${image?.src ?? image}-${index}`}
                       type="button"
                       className={`project-carousel__thumbnail ${
                         activeImageIndex === index
                           ? "project-carousel__thumbnail--active"
                           : ""
                       }`}
-                      style={{ "--thumbnail-delay": `${index * 45}ms` }}
+                      style={{
+                        "--thumbnail-delay": `${index * 45}ms`,
+                      }}
                       onClick={() => selectImage(index)}
                       aria-label={`Afficher l'image ${index + 1}`}
                     >
@@ -350,7 +444,7 @@ export default function ProjectDetail({
             className="project-lightbox"
             role="dialog"
             aria-modal="true"
-            aria-label={`Aperçu de ${activeImage.title ?? title}`}
+            aria-label={`Aperçu de ${activeImage?.title ?? title}`}
           >
             <button
               type="button"
@@ -368,7 +462,7 @@ export default function ProjectDetail({
                     {String(images.length).padStart(2, "0")}
                   </span>
 
-                  <strong>{activeImage.title ?? title}</strong>
+                  <strong>{activeImage?.title ?? title}</strong>
                 </div>
 
                 <button
@@ -397,8 +491,8 @@ export default function ProjectDetail({
                   className={`project-lightbox__image-frame project-lightbox__image-frame--${slideDirection}`}
                 >
                   <img
-                    src={activeImage.src ?? activeImage}
-                    alt={activeImage.title ?? title}
+                    src={activeImage?.src ?? activeImage}
+                    alt={activeImage?.title ?? title}
                   />
                 </div>
 
@@ -414,7 +508,7 @@ export default function ProjectDetail({
                 )}
               </div>
 
-              {activeImage.description && (
+              {activeImage?.description && (
                 <p className="project-lightbox__description">
                   {activeImage.description}
                 </p>
