@@ -29,6 +29,7 @@ import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.j
 import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
+import NespoliProject from "../Projects/pages/NespoliProject.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -42,8 +43,8 @@ const MENU = {
         component: Home,
       },
       {
-        key: "presentation",
-        label: "Présentation",
+        key: "evolution",
+        label: "Evolution",
         component: Presentation,
       },
       {
@@ -128,6 +129,11 @@ const MENU = {
         key: "cinematic",
         label: "Team Fortress 2 Helper",
         component: Tf2Project,
+      },
+      {
+        key: "nespoli",
+        label: "Nespoli",
+        component: NespoliProject,
       },
     ],
   },
