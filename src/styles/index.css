@@ -5242,3 +5242,317 @@ body.project-lightbox-open {
     animation: none;
   }
 }
+.presentation-page {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.82),
+    rgba(8, 12, 15, 0.88)
+  );
+}
+
+.presentation-overview {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.3);
+  animation: presentationOverviewEnter 320ms ease both;
+}
+
+.presentation-overview > div:first-child > span {
+  display: block;
+  margin-bottom: 6px;
+  color: #69c1df;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.presentation-overview h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.presentation-overview p {
+  max-width: 660px;
+  margin: 7px 0 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.presentation-overview__years {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.presentation-overview__years strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.presentation-overview__years span {
+  color: #69c1df;
+  font-size: 13px;
+}
+
+.presentation-career {
+  display: flex;
+  flex-direction: column;
+}
+
+.presentation-career__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 155px minmax(0, 1fr);
+  min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: presentationCareerEnter 340ms ease forwards;
+  animation-delay: var(--presentation-delay);
+}
+
+.presentation-career__item::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: #69c1df;
+  opacity: 0;
+  content: "";
+  transition: opacity 160ms ease;
+}
+
+.presentation-career__item:hover::before {
+  opacity: 1;
+}
+
+.presentation-career__item--current::before {
+  background: #32d74b;
+}
+
+.presentation-career__aside {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.presentation-career__aside > svg {
+  width: 15px;
+  height: 15px;
+  color: rgba(255, 255, 255, 0.42);
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.presentation-career__item:hover .presentation-career__aside > svg {
+  color: #69c1df;
+  transform: scale(1.1);
+}
+
+.presentation-career__item--current .presentation-career__aside > svg {
+  color: #32d74b;
+}
+
+.presentation-career__aside > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.presentation-career__aside strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.presentation-career__aside span {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.presentation-career__accordion {
+  position: relative;
+  min-width: 0;
+}
+
+.presentation-career__accordion .accordion-header {
+  position: relative;
+  min-height: 57px;
+  padding: 10px 15px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.9);
+  transition:
+    background 160ms ease,
+    padding-left 160ms ease;
+}
+
+.presentation-career__accordion .accordion-header:hover {
+  padding-left: 19px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.presentation-career__accordion .accordion-header span:first-child {
+  font-size: 13px;
+}
+
+.presentation-career__accordion .accordion-arrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.presentation-career__accordion .accordion-content {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.presentation-career__accordion .accordion-inner {
+  padding-right: 18px;
+  padding-left: 18px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.presentation-career__accordion .accordion-content.open .accordion-inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.presentation-career__accordion .accordion-inner p {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.68);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.presentation-career__accordion .accordion-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.presentation-career__current {
+  position: absolute;
+  top: 50%;
+  right: 44px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #32d74b;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.presentation-career__current-dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #32d74b;
+  box-shadow: 0 0 7px rgba(50, 215, 75, 0.55);
+}
+
+.presentation-career__current-dot::after {
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(50, 215, 75, 0.45);
+  border-radius: 50%;
+  content: "";
+  animation: presentationCurrentPulse 1.8s ease-out infinite;
+}
+
+@keyframes presentationOverviewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes presentationCareerEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes presentationCurrentPulse {
+  from {
+    opacity: 0.8;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@media (max-width: 700px) {
+  .presentation-overview {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .presentation-overview__years {
+    display: none;
+  }
+
+  .presentation-career__item {
+    grid-template-columns: 108px minmax(0, 1fr);
+  }
+
+  .presentation-career__aside {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 7px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .presentation-career__current {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-overview,
+  .presentation-career__item,
+  .presentation-career__current-dot::after {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
