@@ -111,7 +111,7 @@ export default function ProjectDetail({
               {demoUrl && (
                 <a href={demoUrl} target="_blank" rel="noopener noreferrer">
                   <FaExternalLinkAlt />
-                  <span>Demo</span>
+                  <span>Site officiel</span>
                 </a>
               )}
             </div>
