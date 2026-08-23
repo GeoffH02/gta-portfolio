@@ -30,6 +30,7 @@ import imgLille from "../../styles/img/Lille_destination.jpg";
 import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.jpeg";
 import profileImage from "../../styles/img/profile.jpg";
 import NespoliProject from "../Projects/pages/NespoliProject.jsx";
+import VirgoProject from "../Projects/pages/VirgoProject.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -134,6 +135,11 @@ const MENU = {
         key: "nespoli",
         label: "Nespoli",
         component: NespoliProject,
+      },
+      {
+        key: "virgo",
+        label: "Virgo",
+        component: VirgoProject,
       },
     ],
   },
