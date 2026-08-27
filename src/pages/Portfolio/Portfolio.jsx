@@ -31,6 +31,8 @@ import imgShutterstock from "../../styles/img/shutterstock-2376311517-1-_1_2000.
 import profileImage from "../../styles/img/profile.jpg";
 import NespoliProject from "../Projects/pages/NespoliProject.jsx";
 import VirgoProject from "../Projects/pages/VirgoProject.jsx";
+import QuicksellProject from "../Projects/pages/QuicksellProject.jsx";
+import KobiProject from "../Projects/pages/KobiProject.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -127,6 +129,21 @@ const MENU = {
         component: ProjectsOverview,
       },
       {
+        key: "kobi",
+        label: "Kobi",
+        component: KobiProject,
+      },
+      {
+        key: "quicksell",
+        label: "Quicksell.store",
+        component: QuicksellProject,
+      },
+      {
+        key: "virgo",
+        label: "Virgo",
+        component: VirgoProject,
+      },
+      {
         key: "cinematic",
         label: "Team Fortress 2 Helper",
         component: Tf2Project,
@@ -135,11 +152,6 @@ const MENU = {
         key: "nespoli",
         label: "Nespoli",
         component: NespoliProject,
-      },
-      {
-        key: "virgo",
-        label: "Virgo",
-        component: VirgoProject,
       },
     ],
   },
