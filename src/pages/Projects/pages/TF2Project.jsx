@@ -34,17 +34,13 @@ export default function Tf2Project() {
       logo={backpacktfLogo}
       title="TF2 Trading Helper"
       subtitle="Plateforme de trading et d'automatisation Team Fortress 2"
-      status="PROJET ACTIF"
+      status="En ligne"
       description="Suite complète développée pour centraliser et automatiser mon activité de trading sur Team Fortress 2. L'application regroupe la gestion des bots Steam, le suivi du marché Backpack.tf, le pricing, les inventaires, les échanges, les utilisateurs, les statistiques et différents systèmes d'automatisation."
       meta={[
         {
           label: "TYPE",
           value: "Application Full Stack",
           icon: FaCode,
-        },
-        {
-          label: "STATUT",
-          status: true,
         },
         {
           label: "RÔLE",
@@ -55,6 +51,10 @@ export default function Tf2Project() {
           label: "DOMAINE",
           value: "Trading / Automation",
           icon: FaChartLine,
+        },
+        {
+          label: "STATUT",
+          status: true,
         },
       ]}
       highlights={[
