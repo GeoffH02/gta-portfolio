@@ -4,5 +4,5 @@ import cesium from "vite-plugin-cesium";
 
 export default defineConfig({
   plugins: [react(), cesium()],
-  base: "/portfolio/",
+  base: "/gta-portfolio/",
 });
