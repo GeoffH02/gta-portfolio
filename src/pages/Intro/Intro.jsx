@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as Cesium from "cesium";
+Cesium.Ion.defaultAccessToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
 
 import imgEuratech from "../../styles/img/Euratechnologies-Mathieu-Lassalle-7-1-min-1920x960-crop-1705509667.jpg";
 import imgCitadelle from "../../styles/img/Jielbeaumadier_citadelle_lille_2006.jpg";

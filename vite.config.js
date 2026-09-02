@@ -14,11 +14,11 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: `${cesiumSource}/ThirdParty`,
+          src: `${cesiumSource}/Workers`,
           dest: cesiumBaseUrl,
         },
         {
-          src: `${cesiumSource}/Workers`,
+          src: `${cesiumSource}/ThirdParty`,
           dest: cesiumBaseUrl,
         },
         {
@@ -34,6 +34,6 @@ export default defineConfig({
   ],
 
   define: {
-    CESIUM_BASE_URL: JSON.stringify("/gta-portfolio/cesiumStatic"),
+    CESIUM_BASE_URL: JSON.stringify("/gta-portfolio/cesiumStatic/"),
   },
 });
