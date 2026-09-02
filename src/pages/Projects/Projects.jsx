@@ -1,4 +1,3 @@
-import bytexLogo from "../../styles/img/projects/bytexmarket.png";
 import kobiLogo from "../../styles/img/projects/kobi.png";
 import backpacktfLogo from "../../styles/img/projects/backpacktf.png";
 
@@ -38,14 +37,6 @@ const projects = [
     stack: "React • Blockchain • Extension web",
     description:
       "Wallet crypto avec agenda, carnet de contacts, airdrops, intégration NFT et interface sous forme d'extension navigateur.",
-  },
-  {
-    id: "05",
-    logo: bytexLogo,
-    title: "Bytex Market",
-    stack: "React • Node.js",
-    description:
-      "Marketplace de produits numériques avec interface d'administration et logique métier côté back-end.",
   },
   {
     id: "06",
