@@ -6,7 +6,6 @@ import PauseSidebar from "./components/PauseSidebar.jsx";
 import Home from "../Home/Home.jsx";
 import Presentation from "../Home/Presentation.jsx";
 import AboutMe from "../Home/AboutMe.jsx";
-import HomeMap from "../Home/HomeMap.jsx";
 
 import ProjectsOverview from "../Projects/Projects.jsx";
 import StackOverview from "../Stack/Stack.jsx";
@@ -54,11 +53,6 @@ const MENU = {
         key: "about",
         label: "Hobbies",
         component: AboutMe,
-      },
-      {
-        key: "map",
-        label: "Carte",
-        component: HomeMap,
       },
     ],
   },
