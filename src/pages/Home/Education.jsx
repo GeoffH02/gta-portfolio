@@ -52,10 +52,6 @@ export default function EducationJourney() {
             évolution dans le développement.
           </p>
         </div>
-
-        <span className="education-header__count">
-          {String(education.length).padStart(2, "0")}
-        </span>
       </div>
 
       <div className="education-list">
