@@ -32,6 +32,7 @@ import NespoliProject from "../Projects/pages/NespoliProject.jsx";
 import VirgoProject from "../Projects/pages/VirgoProject.jsx";
 import QuicksellProject from "../Projects/pages/QuicksellProject.jsx";
 import KobiProject from "../Projects/pages/KobiProject.jsx";
+import EducationJourney from "../Home/Education.jsx";
 
 const PORTFOLIO_IMAGES = [imgEuratech, imgCitadelle, imgLille, imgShutterstock];
 
@@ -43,6 +44,11 @@ const MENU = {
         key: "overview",
         label: "Informations",
         component: Home,
+      },
+      {
+        key: "education",
+        label: "Formations",
+        component: EducationJourney,
       },
       {
         key: "evolution",
