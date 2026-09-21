@@ -23,7 +23,7 @@ const education = [
     location: "Lille",
     degree: "Web@cadémie",
     description:
-      "Formation intensive orientée développement web, avec de nombreux projets individuels et en équipe.",
+      "Formation orientée développement web, avec de nombreux projets individuels et en équipe.",
     icon: FaLaptopCode,
   },
   {
@@ -35,7 +35,6 @@ const education = [
     description:
       "Formation en alternance permettant de consolider mes compétences Full Stack, la gestion de projet et mon expérience professionnelle.",
     icon: FaGraduationCap,
-    completed: true,
   },
 ];
 
@@ -105,10 +104,6 @@ export default function EducationJourney() {
 
                 <p>{item.description}</p>
               </div>
-
-              {item.completed && (
-                <FaCheckCircle className="education-item__check" />
-              )}
             </article>
           );
         })}
