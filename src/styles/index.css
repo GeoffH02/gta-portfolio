@@ -7218,3 +7218,275 @@ body.project-lightbox-open {
 .project-highlight:hover .project-highlight__content small {
   color: rgba(255, 255, 255, 0.58);
 }
+
+.education-page {
+  width: 100%;
+  min-height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.92),
+    rgba(5, 10, 13, 0.88)
+  );
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 25px 28px 22px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.education-header__eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #69c1df;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+.education-header h2 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  text-transform: uppercase;
+}
+
+.education-header p {
+  max-width: 600px;
+
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.education-header__count {
+  color: #69c1df;
+
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 48px 54px minmax(0, 1fr) 35px;
+  align-items: stretch;
+
+  min-height: 125px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  opacity: 0;
+  transform: translateX(-8px);
+
+  animation: educationItemEnter 320ms var(--education-delay) ease forwards;
+
+  transition:
+    background 160ms ease,
+    padding-left 160ms ease;
+}
+
+.education-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.education-item__index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 8px;
+}
+
+.education-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 20px;
+
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.education-item:hover .education-item__icon {
+  color: #69c1df;
+
+  transform: scale(1.1);
+}
+
+.education-item__content {
+  padding: 18px 15px 17px;
+}
+
+.education-item__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.education-item__period {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #69c1df;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+.education-item h3 {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 17px;
+  font-weight: 400;
+
+  text-transform: uppercase;
+}
+
+.education-item__school {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 6px;
+}
+
+.education-item__school strong {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.education-item__school span {
+  color: rgba(255, 255, 255, 0.33);
+
+  font-size: 9px;
+}
+
+.education-item p {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.education-item__status {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+.education-item__status .status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #20d866;
+
+  box-shadow:
+    0 0 0 3px rgba(32, 216, 102, 0.1),
+    0 0 9px rgba(32, 216, 102, 0.5);
+}
+
+.education-item__check {
+  align-self: center;
+
+  color: rgba(32, 216, 102, 0.6);
+
+  font-size: 13px;
+}
+
+.education-item--completed {
+  border-left: 2px solid rgba(32, 216, 102, 0.45);
+}
+
+@keyframes educationItemEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .education-item {
+    grid-template-columns: 38px 42px minmax(0, 1fr);
+  }
+
+  .education-item__check {
+    display: none;
+  }
+
+  .education-item__top {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-item {
+    opacity: 1;
+    transform: none;
+
+    animation: none;
+  }
+}
