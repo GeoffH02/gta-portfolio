@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://geoffh02.github.io/gta-portfolio/">
+  <a href="https://geoffh02.github.io/portfolio/">
     <img src="https://img.shields.io/badge/VOIR_LE_PORTFOLIO-69C1DF?style=for-the-badge&logo=googlechrome&logoColor=111111" alt="Voir le portfolio" />
   </a>
 
-  <a href="https://github.com/GeoffH02/gta-portfolio">
+  <a href="https://github.com/GeoffH02/portfolio">
     <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
 
@@ -28,7 +28,7 @@
 ## 🎬 Aperçu
 
 <p align="center">
-  <a href="https://geoffh02.github.io/gta-portfolio/">
+  <a href="https://geoffh02.github.io/portfolio/">
     <img
       src="./src/styles/img/readme/portfolio-preview.png"
       alt="Aperçu du portfolio de Geoffrey Hallier"
@@ -412,7 +412,7 @@ Le portfolio comprend notamment :
 # 📁 Structure du projet
 
 ```text
-gta-portfolio/
+portfolio/
 ├── .github/
 │   └── workflows/
 │
@@ -458,13 +458,13 @@ gta-portfolio/
 Clonez le repository :
 
 ```bash
-git clone https://github.com/GeoffH02/gta-portfolio.git
+git clone https://github.com/GeoffH02/portfolio.git
 ```
 
 Accédez au projet :
 
 ```bash
-cd gta-portfolio
+cd portfolio
 ```
 
 Installez les dépendances :
@@ -527,7 +527,7 @@ npm run preview
 
 Le portfolio est disponible publiquement ici :
 
-### 🌐 https://geoffh02.github.io/gta-portfolio/
+### 🌐 https://geoffh02.github.io/portfolio/
 
 Le déploiement est automatisé grâce à **GitHub Actions** et **GitHub Pages**.
 
@@ -578,9 +578,9 @@ Avec une attention particulière portée aux :
 
 ### 🔗 Liens
 
-- 🌐 [Portfolio](https://geoffh02.github.io/gta-portfolio/)
+- 🌐 [Portfolio](https://geoffh02.github.io/portfolio/)
 - 💻 [GitHub](https://github.com/GeoffH02)
-- 📦 [Repository du portfolio](https://github.com/GeoffH02/gta-portfolio)
+- 📦 [Repository du portfolio](https://github.com/GeoffH02/portfolio)
 - 💼 [LinkedIn](https://www.linkedin.com/in/geoffrey-hallier-8ab971231/)
 
 ---
@@ -607,7 +607,7 @@ Les marques, logos et contenus associés aux entreprises et projets présentés 
 
 <br>
 
-[🌐 Portfolio](https://geoffh02.github.io/gta-portfolio/) •
+[🌐 Portfolio](https://geoffh02.github.io/portfolio/) •
 [💻 GitHub](https://github.com/GeoffH02) •
 [💼 LinkedIn](https://www.linkedin.com/in/geoffrey-hallier-8ab971231/)
 

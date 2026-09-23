@@ -1,6 +1,7 @@
 {
-  "name": "lille-gta-portfolio-cesium",
+  "name": "portfolio",
   "version": "1.0.0",
+  "author": "Hallier Geoffrey",
   "private": true,
   "type": "module",
   "scripts": {
