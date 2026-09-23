@@ -13,14 +13,48 @@
 }
 
 @font-face {
-  font-family: "Chalet";
-  src: url("./fonts/Chalet%20LondonNineteenSixty%20Regular.otf")
-    format("opentype");
+  font-family: "Rajdhani";
+  src: url("./fonts/rajdhani-latin-300-normal.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/rajdhani-latin-400-normal.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/rajdhani-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/rajdhani-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/rajdhani-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Rajdhani", Arial, sans-serif;
+}
 html,
 body,
 #root {
@@ -29,14 +63,7 @@ body,
   margin: 0;
   background: var(--gta-black);
   color: var(--gta-cream);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
 }
 
 a {
@@ -176,7 +203,7 @@ button {
 
 .gta-loader-kicker {
   color: var(--gta-blue);
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.2em;
@@ -185,7 +212,7 @@ button {
 .gta-loader-card h1 {
   margin: 12px 0;
   color: var(--gta-cream);
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 400;
   line-height: 0.85;
@@ -229,14 +256,14 @@ button {
   display: block;
   margin-bottom: 8px;
   color: var(--gta-gold);
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
 }
 
 .map-title h1 {
   margin: 0;
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: clamp(3.4rem, 8vw, 7.5rem);
   font-weight: 400;
   line-height: 0.8;
@@ -259,7 +286,7 @@ button {
   display: flex;
   gap: 14px;
   color: rgba(244, 240, 232, 0.72);
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.74rem;
   letter-spacing: 0.14em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
@@ -287,7 +314,7 @@ button {
   background: transparent;
   color: rgba(244, 240, 232, 0.88);
   cursor: pointer;
-  font-family: "Chalet", sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
@@ -318,7 +345,7 @@ button {
   min-height: 100vh;
   padding: clamp(42px, 6vw, 84px) clamp(22px, 15vw, 250px) 70px;
   color: #f4f0e8;
-  font-family: "Chalet", Arial, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
 }
 
 .pause-slideshow {
@@ -627,7 +654,7 @@ button {
 .pause-projects p {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.92rem;
   line-height: 1.55;
 }
@@ -639,7 +666,7 @@ button {
   display: flex;
   gap: 22px;
   color: rgba(255, 255, 255, 0.9);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.82rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
@@ -1141,7 +1168,7 @@ button {
   max-width: 780px;
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.72);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -1296,7 +1323,7 @@ button {
 .stack-row__subtitle {
   overflow: hidden;
   color: rgba(255, 255, 255, 0.52);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 10px;
   line-height: 1.2;
   text-overflow: ellipsis;
@@ -1531,7 +1558,7 @@ button {
 .stack-description__summary {
   margin: 0 0 10px;
   color: #69c1df;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1541,7 +1568,7 @@ button {
 .stack-description__content > p:last-child {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.6;
   animation: descriptionTextEnter 420ms 80ms ease both;
@@ -1925,7 +1952,7 @@ button {
   display: block;
   margin-top: 5px;
   color: rgba(255, 255, 255, 0.4);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 10px;
   line-height: 1.45;
   transition: color 180ms ease;
@@ -2438,7 +2465,7 @@ button {
 .presentation-page .accordion-inner p {
   margin: 0 0 14px;
   color: rgba(255, 255, 255, 0.78);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -2573,7 +2600,7 @@ button {
   display: block;
   margin-bottom: 8px;
   color: #69c1df;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2594,7 +2621,7 @@ button {
   max-width: 700px;
   margin: 14px 0 0;
   color: rgba(255, 255, 255, 0.7);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.6;
   animation: careerDescriptionEnter 420ms 60ms ease both;
@@ -3176,7 +3203,7 @@ button {
   max-width: 650px;
   margin: 14px 0 0;
   color: rgba(255, 255, 255, 0.68);
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.6;
 }
@@ -3224,7 +3251,7 @@ button {
 
   color: rgba(255, 255, 255, 0.38);
 
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.14em;
 }
@@ -3244,7 +3271,7 @@ button {
 
   color: #69c1df;
 
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 12px;
   font-weight: 500;
 }
@@ -3254,7 +3281,7 @@ button {
 
   color: rgba(255, 255, 255, 0.55);
 
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 12px;
 }
 
@@ -3372,7 +3399,7 @@ button {
 
   color: rgba(255, 255, 255, 0.36);
 
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 10px;
 }
 
@@ -5631,7 +5658,7 @@ body.project-lightbox-open {
   max-width: 660px;
   margin: 7px 0 0;
   color: rgba(255, 255, 255, 0.56);
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 12px;
   line-height: 1.55;
 }
@@ -5789,7 +5816,7 @@ body.project-lightbox-open {
 .presentation-career__accordion .accordion-inner p {
   margin: 0 0 12px;
   color: rgba(255, 255, 255, 0.68);
-  font-family: Inter, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 12px;
   line-height: 1.65;
 }
@@ -7036,7 +7063,7 @@ body.project-lightbox-open {
 
   color: rgba(255, 255, 255, 0.58);
 
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
 
   font-size: 12px;
   line-height: 1.65;
@@ -7206,7 +7233,7 @@ body.project-lightbox-open {
 
 .project-highlight__content small {
   color: rgba(255, 255, 255, 0.42);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
   font-size: 10px;
   line-height: 1.4;
 }
