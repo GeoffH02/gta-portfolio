@@ -116,7 +116,7 @@ const presentationItems = [
   {
     year: "2023",
     category: "MARKETPLACE",
-    title: "Quicksell",
+    title: "Quicksell.store",
     icon: FaStore,
     content: (
       <>

@@ -25,7 +25,7 @@ const projects = [
   {
     id: "03",
     logo: quicksellLogo,
-    title: "Quicksell",
+    title: "Quicksell.store",
     stack: "React • Node.js • MongoDB",
     description:
       "Marketplace avec plusieurs milliers d'utilisateurs par jour. Front-end complet et participation importante au back-end.",

@@ -4,14 +4,14 @@ import kobiLogo from "../../styles/img/projects/kobi.png";
 export default function CareerKobi() {
   return (
     <CareerPanel
-      title="Kobi Sport"
+      title="Kobi"
       subtitle="2024 — 2026"
-      description="Développement et évolution des plateformes client et interne de Kobi Sport."
+      description="Développement et évolution des plateformes client et interne de Kobi."
       watermark={kobiLogo}
       rows={[
         {
           label: "Entreprise",
-          value: "Kobi Sport",
+          value: "Kobi",
         },
         {
           label: "Durée",
