@@ -17,6 +17,7 @@ const projects = [
   {
     id: "02",
     logo: backpacktfLogo,
+    logoDark: true,
     title: "TF2 Trading Helper",
     stack: "React • Node.js • MongoDB • Steam API • Backpack.tf API",
     description:
@@ -34,6 +35,7 @@ const projects = [
   {
     id: "04",
     logo: virgoLogo,
+    logoDark: true,
     title: "Virgo Wallet",
     stack: "React • Blockchain • Extension web",
     description:
