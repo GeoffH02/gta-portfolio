@@ -7517,3 +7517,14 @@ body.project-lightbox-open {
     animation: none;
   }
 }
+
+.project-logo--dark {
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-logo--dark img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}

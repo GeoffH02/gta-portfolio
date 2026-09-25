@@ -99,12 +99,12 @@ const MENU = {
       },
       {
         key: "kobi",
-        label: "Kobi Sport",
+        label: "Kobi",
         component: CareerKobi,
       },
       {
         key: "quicksell",
-        label: "Quicksell",
+        label: "Quicksell.store",
         component: CareerQuicksell,
       },
       {

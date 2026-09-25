@@ -25,6 +25,7 @@ const projects = [
   {
     id: "03",
     logo: quicksellLogo,
+    logoDark: true,
     title: "Quicksell.store",
     stack: "React • Node.js • MongoDB",
     description:
@@ -53,7 +54,11 @@ export default function Projects() {
     <section className="projects-list">
       {projects.map((project) => (
         <article key={project.id} className="project-card">
-          <div className="project-logo">
+          <div
+            className={`project-logo ${
+              project.logoDark ? "project-logo--dark" : ""
+            }`}
+          >
             {project.logo ? (
               <img src={project.logo} alt={project.title} />
             ) : (
